@@ -19,6 +19,11 @@ spec:
   upgrade:
     remediation:
       retries: 3
+  valuesFrom:
+  - kind: Secret
+    name: crossref-api
+    valuesKey: bearerToken
+    targetPath: crossrefApiBearerToken
   values:
     postgresqlSecretName: foo
     hostname: sciety-demo.elifesciences.org
@@ -26,7 +31,6 @@ spec:
     images:
       frontend:
         tag: 083e7eab08789f8ac8b9fc9106117e839bc5eaf0
-    crossrefApiBearerToken: bogus
     experimentEnabled: ""
     appSecret: unsafe-secret
     appCache: redis
