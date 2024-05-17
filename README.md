@@ -1,5 +1,5 @@
 # Deployment of Sciety
 
-- [eLife flux cluster guide for application teams](https://github.com/elifesciences/elife-flux-cluster/blob/master/docs/guide-for-application-teams.md)
+- [Platform guide](https://github.com/elifesciences/elife-flux-cluster/blob/master/docs/guide-for-application-teams.md): how to deploy applications to eLife cluster.
 - [Kubernetes dashboard](https://k8s-dashboard.flux-prod.elifesciences.org/clusters/local/namespaces/sciety/deployments): see the state of resources without `kubectl`.
-- [Status of resources defined in this repository](https://gitops-dashboard--flux-prod.elifesciences.org/kustomization/details?clusterName=Default&name=sciety-deployment&namespace=flux-system)
+- [GitOps dashboard](https://gitops-dashboard--flux-prod.elifesciences.org/kustomization/details?clusterName=Default&name=sciety-deployment&namespace=flux-system): see the process of changes being applied.
