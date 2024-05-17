@@ -177,8 +177,9 @@ spec:
 #      customTLSSecret:
 #        name: keycloakdb-pgbouncer.tls
 #
-#      config:
-#        global:
+      config:
+        global:
+          client_tls_sslmode: disable
 #          pool_mode: transaction
 
   backups:
