@@ -12,6 +12,17 @@ spec:
   instances:
   - name: instance1
     replicas: 1
+
+    affinity:
+      podAntiAffinity:
+        preferredDuringSchedulingIgnoredDuringExecution:
+        - weight: 1
+          podAffinityTerm:
+            labelSelector:
+              matchLabels:
+                postgres-operator.crunchydata.com/data: postgres
+            topologyKey: kubernetes.io/hostname
+
     dataVolumeClaimSpec:
       accessModes:
       - ReadWriteOnce
@@ -23,6 +34,15 @@ spec:
     pgBouncer:
       replicas: 1
       image: percona/percona-postgresql-operator:2.3.1-ppg12-pgbouncer
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 1
+            podAffinityTerm:
+              labelSelector:
+                matchLabels:
+                  postgres-operator.crunchydata.com/role: pgbouncer
+              topologyKey: kubernetes.io/hostname
       config:
         global:
           client_tls_sslmode: disable
@@ -30,6 +50,16 @@ spec:
   backups:
     pgbackrest:
       image: percona/percona-postgresql-operator:2.3.1-ppg12-pgbackrest
+      repoHost:
+        affinity:
+          podAntiAffinity:
+            preferredDuringSchedulingIgnoredDuringExecution:
+             - weight: 1
+               podAffinityTerm:
+                 labelSelector:
+                   matchLabels:
+                     postgres-operator.crunchydata.com/data: pgbackrest
+                 topologyKey: kubernetes.io/hostname
       manual:
         repoName: repo1
         options:
