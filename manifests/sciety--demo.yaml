@@ -30,7 +30,7 @@ spec:
     ingestionAuthBearerToken: not-really-secret-bearer-token
     images:
       frontend:
-        tag: 4787bc08df74addf4c92df0198cfbe19c36a7f96
+        tag: e4994b393c09803657d467b3a7367c8821d03c34
     experimentEnabled: ""
     appSecret: unsafe-secret
     appCache: redis
