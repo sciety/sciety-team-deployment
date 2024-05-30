@@ -1,0 +1,12 @@
+apiVersion: rds.services.k8s.aws/v1alpha1
+kind: DBInstance
+metadata:
+  name: sciety-demo
+  namespace: sciety
+spec:
+  allocatedStorage: 20
+  dbInstanceClass: db.t4g.micro
+  dbInstanceIdentifier: sciety-demo
+  engine: postgres
+  engineVersion: "12"
+  masterUsername: "postgres"
