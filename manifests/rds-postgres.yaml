@@ -10,5 +10,6 @@ spec:
   engine: postgres
   engineVersion: "12"
   masterUsername: "postgres"
-  manageMasterUserPassword: true
-  masterUserSecretKMSKeyID: aws/secretsmanager
+  masterUserPassword:
+    name: demo-database
+    key: password
