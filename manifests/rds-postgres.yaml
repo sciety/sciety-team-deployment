@@ -11,3 +11,4 @@ spec:
   engineVersion: "12"
   masterUsername: "postgres"
   manageMasterUserPassword: true
+  masterUserSecretKMSKeyID: aws/secretsmanager
