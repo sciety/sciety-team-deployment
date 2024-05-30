@@ -10,3 +10,4 @@ spec:
   engine: postgres
   engineVersion: "12"
   masterUsername: "postgres"
+  manageMasterUserPassword: true
