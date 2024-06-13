@@ -13,3 +13,7 @@ spec:
   masterUserPassword:
     name: demo-database
     key: password
+  vpcSecurityGroupIDs:
+    - sg-0a04b1c8433227e63
+  dbSubnetGroupName: elife-flux-prod-ack-rds-controller-all-dbs
+
