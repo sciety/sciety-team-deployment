@@ -16,4 +16,19 @@ spec:
   vpcSecurityGroupIDs:
     - sg-0a04b1c8433227e63
   dbSubnetGroupName: elife-flux-prod-ack-rds-controller-all-dbs
-
+---
+apiVersion: services.k8s.aws/v1alpha1
+kind: FieldExport
+metadata:
+  name: sciety-demo-dbinstance-endpoint-address
+  namespace: sciety
+spec:
+  to:
+    name: sciety--demo--public-env-vars
+    kind: configmap
+  from:
+    path: ".status.endpoint.address"
+    resource:
+      group: rds.services.k8s.aws
+      kind: DBInstance
+      name: sciety-demo
