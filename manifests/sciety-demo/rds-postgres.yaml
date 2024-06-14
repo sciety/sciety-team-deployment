@@ -26,6 +26,7 @@ spec:
   to:
     name: sciety--demo--public-env-vars
     kind: configmap
+    key: PGHOST
   from:
     path: ".status.endpoint.address"
     resource:
