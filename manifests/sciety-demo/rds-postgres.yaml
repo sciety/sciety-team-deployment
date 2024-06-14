@@ -32,4 +32,3 @@ spec:
       group: rds.services.k8s.aws
       kind: DBInstance
       name: sciety-demo
-      key: PGHOST
