@@ -7,6 +7,7 @@ spec:
   allocatedStorage: 20
   dbInstanceClass: db.t4g.micro
   dbInstanceIdentifier: sciety-demo
+  dbName: postgres
   engine: postgres
   engineVersion: "12"
   masterUsername: "postgres"
