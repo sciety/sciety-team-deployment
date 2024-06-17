@@ -5,3 +5,4 @@ metadata:
   namespace: sciety
 data:
   BOGUSENVVAR: "bogusvalue"
+  PGDATABASE: postgres
