@@ -8,6 +8,7 @@ spec:
   dbInstanceClass: db.t4g.micro
   dbInstanceIdentifier: sciety-demo
   dbName: postgres
+  port: 5432
   engine: postgres
   engineVersion: "12"
   masterUsername: "postgres"
