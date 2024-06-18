@@ -8,6 +8,7 @@ resources:
   - "./helm-release.yaml"
   - "./ncrc-sheet-key.yaml"
   - "./public-env-var-configmap.yaml"
+  - "./secret-env-vars.yaml"
   - "./rds-postgres.yaml"
 
 namespace: sciety
