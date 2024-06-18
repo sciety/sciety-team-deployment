@@ -4,7 +4,6 @@ kind: Kustomization
 resources:
   - "./crossref-api-externalsecret.yaml"
   - "./database-externalsecret.yaml"
-  - "./foo-secret.yaml"
   - "./helm-release.yaml"
   - "./ncrc-sheet-key.yaml"
   - "./public-env-var-configmap.yaml"
