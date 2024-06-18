@@ -20,8 +20,8 @@ spec:
       retries: 3
   valuesFrom:
     - kind: Secret
-      name: crossref-api
-      valuesKey: bearerToken
+      name: sciety--demo--secret-env-vars
+      valuesKey: CROSSREF_API_BEARER_TOKEN
       targetPath: crossrefApiBearerToken
   values:
     hostname: sciety-demo.elifesciences.org
