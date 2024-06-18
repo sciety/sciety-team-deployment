@@ -6,3 +6,4 @@ metadata:
 data:
   BOGUSENVVAR: "bogusvalue"
   PGDATABASE: postgres
+  PGUSER: postgres
