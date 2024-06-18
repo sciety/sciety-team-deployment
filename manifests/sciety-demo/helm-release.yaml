@@ -24,7 +24,6 @@ spec:
       valuesKey: bearerToken
       targetPath: crossrefApiBearerToken
   values:
-    postgresqlSecretName: foo
     hostname: sciety-demo.elifesciences.org
     ingestionAuthBearerToken: not-really-secret-bearer-token
     images:
