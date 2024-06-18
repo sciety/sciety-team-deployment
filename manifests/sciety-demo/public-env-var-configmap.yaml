@@ -4,7 +4,6 @@ metadata:
   name: sciety--demo--public-env-vars
   namespace: sciety
 data:
-  BOGUSENVVAR: "bogusvalue"
   PGDATABASE: postgres
   PGUSER: postgres
   PGPORT: "5432"
