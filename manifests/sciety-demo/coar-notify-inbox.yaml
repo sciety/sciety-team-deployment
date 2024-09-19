@@ -1,0 +1,26 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: coar-notify-inbox--demo
+  labels:
+    application: coar-notify-inbox--demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      application: coar-notify-inbox--demo
+  template:
+    metadata:
+      labels:
+        application: coar-notify-inbox--demo
+    spec:
+      containers:
+      - name: app
+        image: dragasteff/coar-notify-inbox:0.0.2
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            cpu: 100m
+            memory: 256Mi
