@@ -68,3 +68,38 @@ spec:
     - hosts:
         - coar-notify-inbox-sciety-demo.elifesciences.org
       secretName: sciety--demo--coar-notify-inbox--letsencrypt-cert
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: coar-notify-inbox-database
+  labels:
+    app.kubernetes.io/name: sciety
+    app.kubernetes.io/instance: sciety--demo
+    app.kubernetes.io/component: coar-notify-inbox
+spec:
+  interval: 1m
+  releaseName: coar-notify-inbox-database
+  chart:
+    spec:
+      chart: psmdb-db
+      version: 1.17.0
+      sourceRef:
+        kind: HelmRepository
+        name: percona
+        namespace: db-operator-system
+      interval: 1m
+
+  values:
+    image:
+      repository: percona/percona-server-mongodb
+      tag: 7.0.8-5-multi
+    replsets:
+      rs0:
+        volumeSpec:
+          pvc:
+            accessModes: [ "ReadWriteOnce" ]
+            storageClassName: csi-ebs-gp3
+            resources:
+              requests:
+                storage: 20Gi
