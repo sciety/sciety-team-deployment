@@ -94,3 +94,12 @@ spec:
     image:
       repository: percona/percona-server-mongodb
       tag: 7.0.8-5-multi
+    replsets:
+      rs0:
+        volumeSpec:
+          pvc:
+            accessModes: [ "ReadWriteOnce" ]
+            storageClassName: csi-ebs-gp3
+            resources:
+              requests:
+                storage: 20Gi
