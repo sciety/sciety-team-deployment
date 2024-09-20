@@ -94,6 +94,8 @@ spec:
     image:
       repository: percona/percona-server-mongodb
       tag: 7.0.8-5-multi
+    sharding:
+      enabled: false
     replsets:
       rs0:
         volumeSpec:
