@@ -18,6 +18,9 @@ spec:
       containers:
       - name: app
         image: dragasteff/coar-notify-inbox:0.0.2-amd64
+        env: 
+        - name: MONGO_DB_URI
+          value: mongodb://root:password@mongodb:27017
         ports:
         - containerPort: 8080
         resources:
