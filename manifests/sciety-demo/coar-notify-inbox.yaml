@@ -108,7 +108,7 @@ spec:
   values:
     image:
       repository: percona/percona-server-mongodb
-      tag: 7.0.8-5-multi
+      tag: 7.0.14-8-multi
     sharding:
       enabled: false
     backup:
