@@ -111,6 +111,8 @@ spec:
       tag: 7.0.8-5-multi
     sharding:
       enabled: false
+    backup:
+      enabled: false
     replsets:
       rs0:
         volumeSpec:
