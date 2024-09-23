@@ -22,9 +22,15 @@ spec:
         - name: _MONGO_DB_HOSTNAME
           value: coar-notify-inbox-dat-rs0
         - name: _MONGO_DB_USERNAME
-          value: root
+          valueFrom:
+            secretKeyRef:
+              name: coar-notify-inbox-dat-secrets
+              key: MONGODB_DATABASE_ADMIN_USER
         - name: _MONGO_DB_PASSWORD
-          value: password
+          valueFrom:
+            secretKeyRef:
+              name: coar-notify-inbox-dat-secrets
+              key: MONGODB_DATABASE_ADMIN_PASSWORD
         - name: MONGO_DB_URI
           value: "mongodb://$(_MONGO_DB_USERNAME):$(_MONGO_DB_PASSWORD)@$(_MONGO_DB_HOSTNAME):27017"
         ports:
