@@ -4,6 +4,7 @@ kind: Deployment
 metadata:
   name: coar-notify-inbox--demo
 spec:
+  #  Missing mandatory property `spec.selector` supplied via Kustomize
   replicas: 1
   template:
     spec:
