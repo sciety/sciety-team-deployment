@@ -27,7 +27,8 @@ spec:
         - name: MONGO_DB_URI
           value: "mongodb://$(_MONGO_DB_USERNAME):$(_MONGO_DB_PASSWORD)@$(_MONGO_DB_HOSTNAME):27017"
         ports:
-        - containerPort: 8080
+        - name: http
+          containerPort: 8080
         resources:
           requests:
             cpu: 100m
@@ -40,7 +41,7 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-    - targetPort: 8080
+    - targetPort: http
       port: 80
       protocol: TCP
 ---
