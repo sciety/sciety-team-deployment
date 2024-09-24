@@ -1,4 +1,37 @@
 ---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: coar-notify-inbox--demo
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: app
+        image: dragasteff/coar-notify-inbox:0.0.2-amd64
+        env: 
+        - name: _MONGO_DB_HOSTNAME
+          value: coar-notify-inbox-dat-rs0
+        - name: _MONGO_DB_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: coar-notify-inbox-dat-secrets
+              key: MONGODB_DATABASE_ADMIN_USER
+        - name: _MONGO_DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: coar-notify-inbox-dat-secrets
+              key: MONGODB_DATABASE_ADMIN_PASSWORD
+        - name: MONGO_DB_URI
+          value: "mongodb://$(_MONGO_DB_USERNAME):$(_MONGO_DB_PASSWORD)@$(_MONGO_DB_HOSTNAME):27017"
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            cpu: 100m
+            memory: 256Mi
+---
 apiVersion: v1
 kind: Service
 metadata:
@@ -14,7 +47,9 @@ spec:
       port: 80
       protocol: TCP
   selector:
-    application: coar-notify-inbox--demo
+    app.kubernetes.io/name: sciety
+    app.kubernetes.io/instance: sciety--demo
+    app.kubernetes.io/component: coar-notify-inbox
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
