@@ -13,16 +13,16 @@ spec:
         image: dragasteff/coar-notify-inbox:0.0.3-amd64
         env: 
         - name: _MONGO_DB_HOSTNAME
-          value: inbox-db--${environment_name}-psmdb-rs0
+          value: inbox-db--${environment_name}-rs0
         - name: _MONGO_DB_USERNAME
           valueFrom:
             secretKeyRef:
-              name: inbox-db--${environment_name}-psmdb-secrets
+              name: inbox-db--${environment_name}-secrets
               key: MONGODB_DATABASE_ADMIN_USER
         - name: _MONGO_DB_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: inbox-db--${environment_name}-psmdb-secrets
+              name: inbox-db--${environment_name}-secrets
               key: MONGODB_DATABASE_ADMIN_PASSWORD
         - name: MONGO_DB_URI
           value: "mongodb://$(_MONGO_DB_USERNAME):$(_MONGO_DB_PASSWORD)@$(_MONGO_DB_HOSTNAME):27017"
@@ -92,6 +92,7 @@ spec:
       interval: 1m
 
   values:
+    fullnameOverride: inbox-db--${environment_name}
     image:
       repository: percona/percona-server-mongodb
       tag: 7.0.14-8-multi
