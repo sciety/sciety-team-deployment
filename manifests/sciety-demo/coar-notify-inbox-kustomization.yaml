@@ -12,3 +12,6 @@ spec:
   path: ./kustomizations/coar-notify-inbox
   prune: true
   targetNamespace: sciety
+  postBuild:
+    substitute:
+      environment_name: demo

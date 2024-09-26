@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: coar-notify-inbox--demo
+  name: coar-notify-inbox--${environment_name}
 spec:
   #  Missing mandatory property `spec.selector` supplied via Kustomize
   replicas: 1
