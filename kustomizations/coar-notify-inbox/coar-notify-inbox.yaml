@@ -13,16 +13,16 @@ spec:
         image: dragasteff/coar-notify-inbox:0.0.3-amd64
         env: 
         - name: _MONGO_DB_HOSTNAME
-          value: coar-notify-inbox-dat-rs0
+          value: inbox-db--demo-psmdb-rs0
         - name: _MONGO_DB_USERNAME
           valueFrom:
             secretKeyRef:
-              name: coar-notify-inbox-dat-secrets
+              name: inbox-db--demo-psmdb-secrets
               key: MONGODB_DATABASE_ADMIN_USER
         - name: _MONGO_DB_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: coar-notify-inbox-dat-secrets
+              name: inbox-db--demo-psmdb-secrets
               key: MONGODB_DATABASE_ADMIN_PASSWORD
         - name: MONGO_DB_URI
           value: "mongodb://$(_MONGO_DB_USERNAME):$(_MONGO_DB_PASSWORD)@$(_MONGO_DB_HOSTNAME):27017"
