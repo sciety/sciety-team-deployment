@@ -2,11 +2,11 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-  - "./coar-notify-inbox.yaml"
+  - "./inbox.yaml"
 
 commonLabels: 
   app.kubernetes.io/name: sciety
   app.kubernetes.io/instance: sciety--${environment_name}
-  app.kubernetes.io/component: coar-notify-inbox
+  app.kubernetes.io/component: inbox
 
 namespace: sciety
