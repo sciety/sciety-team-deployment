@@ -43,7 +43,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: coar-notify-inbox--demo
+  name: coar-notify-inbox--${environment_name}
 spec:
   type: ClusterIP
   ports:
@@ -54,25 +54,25 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: coar-notify-inbox--demo
+  name: coar-notify-inbox--${environment_name}
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
   rules:
-    - host: coar-notify-inbox-sciety-demo.elifesciences.org
+    - host: coar-notify-inbox-sciety-${environment_name}.elifesciences.org
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: coar-notify-inbox--demo
+                name: coar-notify-inbox--${environment_name}
                 port:
                   number: 80
   tls:
     - hosts:
-        - coar-notify-inbox-sciety-demo.elifesciences.org
-      secretName: sciety--demo--coar-notify-inbox--letsencrypt-cert
+        - coar-notify-inbox-sciety-${environment_name}.elifesciences.org
+      secretName: sciety--${environment_name}--coar-notify-inbox--letsencrypt-cert
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
