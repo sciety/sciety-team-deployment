@@ -77,10 +77,10 @@ spec:
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: coar-notify-inbox-database
+  name: coar-notify-inbox-database--${environment_name}
 spec:
   interval: 1m
-  releaseName: coar-notify-inbox-database
+  releaseName: coar-notify-inbox-database--${environment_name}
   chart:
     spec:
       chart: psmdb-db
