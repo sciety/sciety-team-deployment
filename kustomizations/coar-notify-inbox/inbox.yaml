@@ -105,7 +105,7 @@ spec:
         volumeSpec:
           pvc:
             accessModes: [ "ReadWriteOnce" ]
-            storageClassName: sciety-gp3
+            storageClassName: csi-ebs-gp3
             resources:
               requests:
                 storage: 20Gi
