@@ -6,5 +6,6 @@ resources:
   - "./sciety-namespace.yaml"
   - "./sciety-demo"
   - "./sciety-staging"
+  - "./sciety-prod"
 
 namespace: sciety
