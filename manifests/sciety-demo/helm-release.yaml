@@ -51,6 +51,10 @@ spec:
       name: sciety--demo--secret-env-vars
       valuesKey: PRELIGHTS_FEED_KEY
       targetPath: prelightsFeedKey
+    - kind: Secret
+      name: sciety--demo--secret-env-vars
+      valuesKey: healthchecksPingKey
+      targetPath: healthchecksPingKey
   values:
     hostname: sciety-demo.elifesciences.org
     images:
@@ -59,6 +63,5 @@ spec:
     experimentEnabled: ""
     appCache: redis
     googleTagManagerId: ""
-    healthchecksPingKey: bogus-healthchecks-ping-key
     enableEventsExportToS3: false
     certManagerClusterIssuer: letsencrypt-prod
