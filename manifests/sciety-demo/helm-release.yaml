@@ -31,6 +31,22 @@ spec:
       name: sciety--demo--secret-env-vars
       valuesKey: APP_SECRET
       targetPath: appSecret
+    - kind: Secret
+      name: sciety--demo--secret-env-vars
+      valuesKey: AUTH0_CLIENT_ID
+      targetPath: auth0ClientId
+    - kind: Secret
+      name: sciety--demo--secret-env-vars
+      valuesKey: AUTH0_CLIENT_SECRET
+      targetPath: auth0ClientSecret
+    - kind: Secret
+      name: sciety--demo--secret-env-vars
+      valuesKey: AUTH0_DOMAIN
+      targetPath: auth0Domain
+    - kind: Secret
+      name: sciety--demo--secret-env-vars
+      valuesKey: AUTH0_CALLBACK_URL
+      targetPath: auth0CallbackUrl
   values:
     hostname: sciety-demo.elifesciences.org
     images:
@@ -38,10 +54,6 @@ spec:
         tag: a202acbb0cac1ffeeb4dbd870511f6d50c3662f8
     experimentEnabled: ""
     appCache: redis
-    auth0ClientId: bogus-auth0-client-id
-    auth0ClientSecret: bogus-auth0-client-secret
-    auth0Domain: sciety-staging.eu.auth0.com
-    auth0CallbackUrl: "https://staging.sciety.org/auth0/callback"
     googleTagManagerId: ""
     prelightsFeedKey: bogus-prelights-feed-key
     healthchecksPingKey: bogus-healthchecks-ping-key
