@@ -27,13 +27,16 @@ spec:
       name: sciety--demo--secret-env-vars
       valuesKey: SCIETY_TEAM_API_BEARER_TOKEN
       targetPath: ingestionAuthBearerToken
+    - kind: Secret
+      name: sciety--demo--secret-env-vars
+      valuesKey: APP_SECRET
+      targetPath: appSecret
   values:
     hostname: sciety-demo.elifesciences.org
     images:
       frontend:
         tag: a202acbb0cac1ffeeb4dbd870511f6d50c3662f8
     experimentEnabled: ""
-    appSecret: unsafe-secret
     appCache: redis
     auth0ClientId: bogus-auth0-client-id
     auth0ClientSecret: bogus-auth0-client-secret
