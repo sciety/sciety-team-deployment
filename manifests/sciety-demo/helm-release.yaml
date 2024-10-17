@@ -23,9 +23,12 @@ spec:
       name: sciety--demo--secret-env-vars
       valuesKey: CROSSREF_API_BEARER_TOKEN
       targetPath: crossrefApiBearerToken
+    - kind: Secret
+      name: sciety--demo--secret-env-vars
+      valuesKey: SCIETY_TEAM_API_BEARER_TOKEN
+      targetPath: ingestionAuthBearerToken
   values:
     hostname: sciety-demo.elifesciences.org
-    ingestionAuthBearerToken: not-really-secret-bearer-token
     images:
       frontend:
         tag: a202acbb0cac1ffeeb4dbd870511f6d50c3662f8
