@@ -6,3 +6,4 @@ data:
   PGDATABASE: postgres
   PGUSER: postgres
   PGPORT: "5432"
+  EXPERIMENT_ENABLED: "true"

@@ -55,12 +55,15 @@ spec:
       name: sciety--demo--secret-env-vars
       valuesKey: healthchecksPingKey
       targetPath: healthchecksPingKey
+    - kind: ConfigMap
+      name: sciety--demo--public-env-vars
+      valuesKey: EXPERIMENT_ENABLED
+      targetPath: experimentEnabled
   values:
     hostname: sciety-demo.elifesciences.org
     images:
       frontend:
         tag: 3f4498411b84043a31dfe33ad172825ea50bc551
-    experimentEnabled: ""
     appCache: redis
     googleTagManagerId: ""
     enableEventsExportToS3: false
