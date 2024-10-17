@@ -47,6 +47,10 @@ spec:
       name: sciety--demo--secret-env-vars
       valuesKey: AUTH0_CALLBACK_URL
       targetPath: auth0CallbackUrl
+    - kind: Secret
+      name: sciety--demo--secret-env-vars
+      valuesKey: PRELIGHTS_FEED_KEY
+      targetPath: prelightsFeedKey
   values:
     hostname: sciety-demo.elifesciences.org
     images:
@@ -55,7 +59,6 @@ spec:
     experimentEnabled: ""
     appCache: redis
     googleTagManagerId: ""
-    prelightsFeedKey: bogus-prelights-feed-key
     healthchecksPingKey: bogus-healthchecks-ping-key
     enableEventsExportToS3: false
     certManagerClusterIssuer: letsencrypt-prod
