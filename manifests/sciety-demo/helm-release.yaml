@@ -63,7 +63,7 @@ spec:
     hostname: sciety-demo.elifesciences.org
     images:
       frontend:
-        tag: 7bac7f1585343149ddeab5a9df8b174256356766
+        tag: 80c1f418738ea5e91401a27565cda93d767998a9
     appCache: redis
     googleTagManagerId: ""
     enableEventsExportToS3: false
