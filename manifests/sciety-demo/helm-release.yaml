@@ -63,11 +63,14 @@ spec:
       name: sciety--demo--public-env-vars
       valuesKey: APP_CACHE
       targetPath: appCache
+    - kind: ConfigMap
+      name: sciety--demo--public-env-vars
+      valuesKey: GOOGLE_TAG_MANAGER_ID
+      targetPath: googleTagManagerId
   values:
     hostname: sciety-demo.elifesciences.org
     images:
       frontend:
         tag: 32d41aeb4998e3339eae19f9a6440265500578dd
-    googleTagManagerId: ""
     enableEventsExportToS3: false
     certManagerClusterIssuer: letsencrypt-prod
