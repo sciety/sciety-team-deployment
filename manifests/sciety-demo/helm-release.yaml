@@ -8,11 +8,11 @@ spec:
   chart:
     spec:
       chart: helm/sciety
+      reconcileStrategy: Revision
       sourceRef:
         kind: GitRepository
         name: sciety
       interval: 1m
-  reconcileStrategy: Revision
   install:
     remediation:
       retries: 3
