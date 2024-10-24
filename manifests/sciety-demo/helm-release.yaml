@@ -82,4 +82,4 @@ spec:
             name: sciety--demo--export-events
           patch: |
             - op: remove
-              path: /spec/jobTemplate/spec/template/containers/0/envFrom
+              path: /spec/jobTemplate/spec/template/spec/containers/0/envFrom
