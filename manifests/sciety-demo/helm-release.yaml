@@ -59,12 +59,15 @@ spec:
       name: sciety--demo--public-env-vars
       valuesKey: EXPERIMENT_ENABLED
       targetPath: experimentEnabled
+    - kind: ConfigMap
+      name: sciety--demo--public-env-vars
+      valuesKey: APP_CACHE
+      targetPath: appCache
   values:
     hostname: sciety-demo.elifesciences.org
     images:
       frontend:
         tag: 32d41aeb4998e3339eae19f9a6440265500578dd
-    appCache: redis
     googleTagManagerId: ""
     enableEventsExportToS3: false
     certManagerClusterIssuer: letsencrypt-prod

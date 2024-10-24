@@ -7,3 +7,4 @@ data:
   PGUSER: postgres
   PGPORT: "5432"
   EXPERIMENT_ENABLED: "true"
+  APP_CACHE: redis
