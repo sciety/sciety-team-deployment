@@ -72,5 +72,5 @@ spec:
     images:
       frontend:
         tag: d0adb98ffcf3d5d2a7eb3b8567fae93f0f20db38
-    enableEventsExportToS3: false
+    enableEventsExportToS3: "true"
     certManagerClusterIssuer: letsencrypt-prod
