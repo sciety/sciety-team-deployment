@@ -74,3 +74,12 @@ spec:
         tag: cc6f87985978d52302b5c6b1ac5d9bb6357cf71d
     enableEventsExportToS3: "true"
     certManagerClusterIssuer: letsencrypt-prod
+  postRenderers:
+  - kustomize:
+      patches:
+        - target:
+            kind: CronJob
+            name: sciety--demo--export-events
+          patch: |
+            - op: remove
+              path: /spec/jobTemplate/spec/template/containers/0/envFrom
