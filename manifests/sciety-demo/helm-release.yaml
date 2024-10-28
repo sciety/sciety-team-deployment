@@ -72,18 +72,18 @@ spec:
     hostname: sciety-demo.elifesciences.org
     images:
       frontend:
-        tag: cc6f87985978d52302b5c6b1ac5d9bb6357cf71d
+        tag: 1a7ffc8ec7f9780421ae168d15b4df1aad5e4ec3
     enableEventsExportToS3: "true"
     certManagerClusterIssuer: letsencrypt-prod
   postRenderers:
-  - kustomize:
-      patches:
-        - target:
-            kind: CronJob
-            name: sciety--demo--export-events
-          patch: |
-            - op: remove
-              path: /spec/jobTemplate/spec/template/spec/containers/0/env
-            - op: replace
-              path: /spec/suspend
-              value: true
+    - kustomize:
+        patches:
+          - target:
+              kind: CronJob
+              name: sciety--demo--export-events
+            patch: |
+              - op: remove
+                path: /spec/jobTemplate/spec/template/spec/containers/0/env
+              - op: replace
+                path: /spec/suspend
+                value: true
