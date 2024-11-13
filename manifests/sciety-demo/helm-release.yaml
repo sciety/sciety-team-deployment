@@ -74,7 +74,7 @@ spec:
       frontend:
         tag: 772f0f3a48f7c84e7b121daa256bed6d1feec954
     enableEventsExportToS3: "true"
-    certManagerClusterIssuer: letsencrypt-prod
+    certManagerClusterIssuer: letsencrypt
   postRenderers:
     - kustomize:
         patches:
