@@ -11,7 +11,7 @@ spec:
       containers:
       - name: app
         image: dragasteff/coar-notify-inbox:0.0.4-amd64
-        env: 
+        env:
         - name: _MONGO_DB_HOSTNAME
           value: inbox-db--${environment_name}-rs0
         - name: _MONGO_DB_USERNAME
@@ -56,7 +56,7 @@ kind: Ingress
 metadata:
   name: inbox--${environment_name}
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-prod
+    cert-manager.io/cluster-issuer: letsencrypt
 spec:
   rules:
     - host: inbox-sciety-${environment_name}.elifesciences.org
