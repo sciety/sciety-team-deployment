@@ -4,8 +4,10 @@ kind: Kustomization
 resources:
   - "./sciety-git-repository.yaml"
   - "./sciety-namespace.yaml"
+  - "./events-export-bucket.yaml"
   - "./sciety-demo"
   - "./sciety-staging"
   - "./sciety-prod"
+
 
 namespace: sciety
