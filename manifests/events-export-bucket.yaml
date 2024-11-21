@@ -4,3 +4,12 @@ metadata:
   name: sciety-events-export
 spec:
   name: sciety-events-export
+
+---
+
+apiVersion: iam.services.k8s.aws/v1alpha1
+kind: Role
+metadata:
+  name: sciety-events-shipper
+spec:
+  name: sciety-events-shipper
