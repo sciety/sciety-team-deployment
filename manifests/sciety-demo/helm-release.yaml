@@ -68,6 +68,10 @@ spec:
       name: sciety--demo--public-env-vars
       valuesKey: GOOGLE_TAG_MANAGER_ID
       targetPath: googleTagManagerId
+    - kind: ConfigMap
+      name: sciety--demo--public-env-vars
+      valuesKey: EVENT_SHIPPER_ROLE_ARN
+      targetPath: eventShipperIAMRoleARN
   values:
     hostname: sciety-demo.elifesciences.org
     images:
