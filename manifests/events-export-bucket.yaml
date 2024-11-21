@@ -33,3 +33,24 @@ spec:
           }
         ]
       }
+  inlinePolicies:
+    giveAccessToScietyEventsExportBucket: |
+      {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+           "Action": [
+             "s3:*"
+           ],
+           "Effect": "Allow",
+           "Resource": "arn:aws:s3:::sciety-events-export"
+         },
+         {
+           "Action": [
+             "s3:*"
+           ],
+           "Effect": "Allow",
+           "Resource": "arn:aws:s3:::sciety-events-export/*"
+         }
+        ]
+      }
