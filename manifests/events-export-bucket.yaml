@@ -25,7 +25,7 @@ spec:
             "Action": "sts:AssumeRoleWithWebIdentity",
             "Condition": {
               "ForAnyValue:StringEquals": {
-                "arn:aws:iam::512686554592:oidc-provider/oidc.eks.us-east-1.amazonaws.com/id/0108D0073AFB87B6669E378F0A9CFB76:sub": [
+                "oidc.eks.us-east-1.amazonaws.com/id/0108D0073AFB87B6669E378F0A9CFB76:sub": [
                   "system:serviceaccount:sciety:sciety--demo--sciety-export-events"
                 ]
               }
