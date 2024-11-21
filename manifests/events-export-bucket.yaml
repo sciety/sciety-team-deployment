@@ -54,3 +54,21 @@ spec:
          }
         ]
       }
+
+---
+
+apiVersion: services.k8s.aws/v1alpha1
+kind: FieldExport
+metadata:
+  name: sciety-event-shipper-role-arn
+spec:
+  to:
+    name: sciety--demo--public-env-vars
+    kind: configmap
+    key: EVENT_SHIPPER_ROLE_ARN
+  from:
+    path: ".status.ackResourceMetadata.arn"
+    resource:
+      group: iam.services.k8s.aws
+      kind: Role
+      name: sciety-events-shipper
