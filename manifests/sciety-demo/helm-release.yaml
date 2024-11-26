@@ -76,7 +76,7 @@ spec:
     hostname: sciety-demo.elifesciences.org
     images:
       frontend:
-        tag: d9a650d7ce42a4a15efdd014d60f29f1046055a8
+        tag: 301fc82df0ec07b174ab68a73fd7597118611a54
     enableEventsExportToS3: "true"
     certManagerClusterIssuer: letsencrypt
   postRenderers:
