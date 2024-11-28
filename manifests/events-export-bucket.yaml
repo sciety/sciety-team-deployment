@@ -4,6 +4,36 @@ metadata:
   name: sciety-events-export
 spec:
   name: sciety-events-export
+  policy: |
+    {
+      "Version": "2012-10-17",
+      "Statement": [
+        {
+          "Principal": {
+            "AWS": [
+              "arn:aws:iam::512686554592:user/data-pipeline"
+            ]
+          },
+          "Action": [
+            "s3:ListBucket"
+          ],
+          "Effect": "Allow",
+          "Resource": "arn:aws:s3:::sciety-events-export"
+        },
+        {
+          "Principal": {
+            "AWS": [
+              "arn:aws:iam::512686554592:user/data-pipeline"
+            ]
+          },
+          "Action": [
+            "s3:GetObject"
+          ],
+          "Effect": "Allow",
+          "Resource": "arn:aws:s3:::sciety-events-export/*"
+        }
+      ]
+    }
 
 ---
 
