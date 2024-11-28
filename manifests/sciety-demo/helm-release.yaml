@@ -72,6 +72,10 @@ spec:
       name: sciety--demo--public-env-vars
       valuesKey: EVENT_SHIPPER_ROLE_ARN
       targetPath: eventShipperIAMRoleARN
+    - kind: ConfigMap
+      name: sciety--demo--public-env-vars
+      valuesKey: exportBucketName
+      targetPath: exportBucketName
   values:
     hostname: sciety-demo.elifesciences.org
     images:

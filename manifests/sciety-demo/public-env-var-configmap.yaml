@@ -9,3 +9,4 @@ data:
   EXPERIMENT_ENABLED: "true"
   APP_CACHE: redis
   GOOGLE_TAG_MANAGER_ID: ""
+  exportBucketName: "sciety-events-export"
