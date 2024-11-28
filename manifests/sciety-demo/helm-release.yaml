@@ -83,13 +83,4 @@ spec:
         tag: bf8a3367da2771028fda67481ff043973d11c5c2
     enableEventsExportToS3: "true"
     certManagerClusterIssuer: letsencrypt
-  postRenderers:
-    - kustomize:
-        patches:
-          - target:
-              kind: CronJob
-              name: sciety--demo--export-events
-            patch: |
-              - op: replace
-                path: /spec/suspend
-                value: true
+
