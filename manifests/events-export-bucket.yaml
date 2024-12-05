@@ -50,12 +50,12 @@ spec:
           {
             "Effect": "Allow",
             "Principal": {
-              "Federated": "arn:aws:iam::512686554592:oidc-provider/oidc.eks.us-east-1.amazonaws.com/id/0108D0073AFB87B6669E378F0A9CFB76"
+              "Federated": "${cluster_oidc_arn}"
             },
             "Action": "sts:AssumeRoleWithWebIdentity",
             "Condition": {
               "ForAnyValue:StringEquals": {
-                "oidc.eks.us-east-1.amazonaws.com/id/0108D0073AFB87B6669E378F0A9CFB76:sub": [
+                "${cluster_oidc_url}:sub": [
                   "system:serviceaccount:sciety:sciety--demo--sciety-export-events"
                 ]
               }
