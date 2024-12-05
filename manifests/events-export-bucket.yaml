@@ -109,3 +109,4 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: sciety-event-shipper-config
+data: {}
