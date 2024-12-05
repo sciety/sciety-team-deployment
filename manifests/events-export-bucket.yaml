@@ -93,7 +93,7 @@ metadata:
   name: sciety-event-shipper-role-arn
 spec:
   to:
-    name: sciety--demo--public-env-vars
+    name: sciety-event-shipper-config
     kind: configmap
     key: EVENT_SHIPPER_ROLE_ARN
   from:
@@ -102,3 +102,10 @@ spec:
       group: iam.services.k8s.aws
       kind: Role
       name: sciety-events-shipper
+
+---
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sciety-event-shipper-config
