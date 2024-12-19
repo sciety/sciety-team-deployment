@@ -374,7 +374,7 @@
   },
   "timezone": "browser",
   "title": "Sciety test dashboard",
-  "uid": "nginx",
+  "uid": "sciety-test",
   "version": 8,
   "weekStart": ""
 }
