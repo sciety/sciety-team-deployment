@@ -5,6 +5,7 @@ resources:
   - "./sciety-git-repository.yaml"
   - "./sciety-namespace.yaml"
   - "./events-export-bucket.yaml"
+  - "./grafana-dashboard-test.yaml"
   - "./sciety-demo"
   - "./sciety-staging"
   - "./sciety-prod"
