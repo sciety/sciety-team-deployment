@@ -1326,7 +1326,8 @@ data:
     "schemaVersion": 16,
     "style": "dark",
     "tags": [
-      "sciety"
+      "sciety",
+      "nginx"
     ],
     "templating": {
       "list": [
