@@ -42,7 +42,80 @@ data:
       "fiscalYearStartMonth": 0,
       "graphTooltip": 0,
       "links": [],
-      "panels": [],
+      "panels": [
+      {
+    "datasource": {
+    "type": "prometheus",
+    "uid": "${DS_PROMETHEUS}"
+    },
+    "description": "",
+    "fieldConfig": {
+    "defaults": {
+    "mappings": [],
+    "thresholds": {
+    "mode": "absolute",
+    "steps": [
+    {
+      "color": "blue",
+      "value": null
+    },
+    {
+      "color": "red",
+      "value": 100
+    }
+    ]
+    },
+    "decimals": 0,
+    "noValue": "0",
+    "unit": "short"
+    },
+    "overrides": []
+    },
+    "gridPos": {
+    "h": 5,
+    "w": 6,
+    "x": 0,
+    "y": 0
+    },
+    "id": 24,
+    "options": {
+    "reduceOptions": {
+    "values": false,
+    "calcs": [
+    "last"
+    ],
+    "fields": ""
+    },
+    "orientation": "auto",
+    "textMode": "value",
+    "wideLayout": true,
+    "colorMode": "value",
+    "graphMode": "none",
+    "justifyMode": "auto",
+    "showPercentChange": false,
+    "text": {}
+    },
+    "pluginVersion": "10.4.0",
+    "targets": [
+    {
+    "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+    },
+    "editorMode": "code",
+    "exemplar": false,
+    "expr": "count(gotk_resource_info{exported_namespace=~\"$namespace\", customresource_kind=~\"Kustomization|HelmRelease\"})",
+    "instant": true,
+    "interval": "",
+    "legendFormat": "",
+    "range": false,
+    "refId": "A"
+    }
+    ],
+    "title": "Cluster Reconcilers",
+    "type": "stat"
+      }
+      ],
       "refresh": "5s",
       "schemaVersion": 39,
       "tags": [
