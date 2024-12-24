@@ -209,10 +209,7 @@
   ],
   "refresh": "5s",
   "schemaVersion": 39,
-  "tags": [
-    "sciety",
-    "nginx"
-  ],
+  "tags": ["sciety"],
   "templating": {
     "list": [
       {
@@ -373,8 +370,8 @@
     ]
   },
   "timezone": "browser",
-  "title": "Sciety test dashboard",
-  "uid": "sciety-test",
+  "title": "Sciety application health",
+  "uid": "88562ccf-7483-4403-a1fd-5e9d6b952052",
   "version": 8,
   "weekStart": ""
 }
