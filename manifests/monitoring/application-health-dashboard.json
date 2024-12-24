@@ -117,7 +117,7 @@
         ]
       },
       "gridPos": {
-        "h": 11,
+        "h": 7,
         "w": 24,
         "x": 0,
         "y": 0
@@ -303,10 +303,10 @@
         ]
       },
       "gridPos": {
-        "h": 11,
+        "h": 7,
         "w": 24,
         "x": 0,
-        "y": 11
+        "y": 7
       },
       "id": 26,
       "interval": "$bucket",
@@ -336,6 +336,101 @@
         }
       ],
       "title": "[DURATION] Request duration [s] / $bucket",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P4169E866C3094E38"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 14
+      },
+      "id": 27,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P4169E866C3094E38"
+          },
+          "editorMode": "code",
+          "expr": "rate(container_cpu_usage_seconds_total{namespace=\"sciety\", pod=~\"sciety--demo--frontend.*\", cpu=\"total\", container=\"app\"})",
+          "instant": false,
+          "legendFormat": "{{image}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "[SATURATION] CPU Usage [cores used]",
       "type": "timeseries"
     }
   ],
