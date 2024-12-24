@@ -62,7 +62,7 @@
             "spanNulls": false,
             "stacking": {
               "group": "A",
-              "mode": "none"
+              "mode": "normal"
             },
             "thresholdsStyle": {
               "mode": "off"
@@ -112,7 +112,8 @@
             "uid": "P022A0A8F82CACB18"
           },
           "editorMode": "code",
-          "expr": "kubernetes.pod_labels.app.kubernetes.io/name: \"sciety\"\nAND kubernetes.pod_labels.app.kubernetes.io/instance:\"sciety--demo\"\nAND kubernetes.pod_labels.app.kubernetes.io/component:\"frontend\"\nAND \"Sent HTTP response\"\n| stats count() logs_total\n",
+          "expr": "kubernetes.pod_labels.app.kubernetes.io/name: \"sciety\"\nAND kubernetes.pod_labels.app.kubernetes.io/instance:\"sciety--demo\"\nAND kubernetes.pod_labels.app.kubernetes.io/component:\"frontend\"\nAND \"Sent HTTP response\"\n| extract_regexp '\"status\":(?P<status>[2-5]+)[0-9]{2},'\n| stats by(status) count() logs_total\n",
+          "legendFormat": "{{status}}xx",
           "queryType": "statsRange",
           "refId": "A"
         }
