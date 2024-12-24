@@ -28,8 +28,8 @@
   "panels": [
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "P4169E866C3094E38"
+        "type": "victorialogs-datasource",
+        "uid": "P022A0A8F82CACB18"
       },
       "fieldConfig": {
         "defaults": {
@@ -43,8 +43,8 @@
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
+            "drawStyle": "bars",
+            "fillOpacity": 100,
             "gradientMode": "none",
             "hideFrom": {
               "legend": false,
@@ -53,7 +53,7 @@
             },
             "insertNulls": false,
             "lineInterpolation": "linear",
-            "lineWidth": 1,
+            "lineWidth": 0,
             "pointSize": 5,
             "scaleDistribution": {
               "type": "linear"
@@ -92,6 +92,7 @@
         "y": 0
       },
       "id": 25,
+      "interval": "1m",
       "options": {
         "legend": {
           "calcs": [],
@@ -107,22 +108,16 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P4169E866C3094E38"
+            "type": "victorialogs-datasource",
+            "uid": "P022A0A8F82CACB18"
           },
-          "disableTextWrap": false,
-          "editorMode": "builder",
-          "expr": "container_cpu_load_average_10s{namespace=\"sciety\", container=\"app\"}",
-          "fullMetaSearch": false,
-          "includeNullMetadata": true,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A",
-          "useBackend": false
+          "editorMode": "code",
+          "expr": "kubernetes.pod_labels.app.kubernetes.io/name: \"sciety\"\nAND kubernetes.pod_labels.app.kubernetes.io/instance:\"sciety--demo\"\nAND kubernetes.pod_labels.app.kubernetes.io/component:\"frontend\"\nAND \"Sent HTTP response\"\n| stats count() logs_total\n",
+          "queryType": "statsRange",
+          "refId": "A"
         }
       ],
-      "title": "Panel Title",
+      "title": "[RATE] Requests / 1m",
       "type": "timeseries"
     }
   ],
@@ -135,7 +130,7 @@
     "list": []
   },
   "time": {
-    "from": "now-1h",
+    "from": "now-3h",
     "to": "now"
   },
   "timepicker": {
