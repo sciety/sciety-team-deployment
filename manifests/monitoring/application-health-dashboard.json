@@ -31,6 +31,7 @@
         "type": "victorialogs-datasource",
         "uid": "P022A0A8F82CACB18"
       },
+      "description": "",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -149,7 +150,7 @@
           "refId": "A"
         }
       ],
-      "title": "[RATE] Requests / 1m",
+      "title": "[RATE & ERRORS] Requests / $bucket",
       "type": "timeseries"
     },
     {
