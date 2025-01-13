@@ -3,6 +3,7 @@ kind: ConfigMap
 metadata:
   name: sciety--demo--public-env-vars
 data:
+  # PGHOST is also added here from the RDS field export
   PGDATABASE: postgres
   PGUSER: postgres
   PGPORT: "5432"
