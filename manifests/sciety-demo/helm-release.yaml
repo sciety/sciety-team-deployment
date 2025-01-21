@@ -22,10 +22,6 @@ spec:
   valuesFrom:
     - kind: Secret
       name: sciety--demo--secret-env-vars
-      valuesKey: CROSSREF_API_BEARER_TOKEN
-      targetPath: crossrefApiBearerToken
-    - kind: Secret
-      name: sciety--demo--secret-env-vars
       valuesKey: SCIETY_TEAM_API_BEARER_TOKEN
       targetPath: ingestionAuthBearerToken
     - kind: Secret
