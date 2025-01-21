@@ -22,10 +22,6 @@ spec:
   valuesFrom:
     - kind: Secret
       name: sciety--demo--secret-env-vars
-      valuesKey: SCIETY_TEAM_API_BEARER_TOKEN
-      targetPath: ingestionAuthBearerToken
-    - kind: Secret
-      name: sciety--demo--secret-env-vars
       valuesKey: APP_SECRET
       targetPath: appSecret
     - kind: Secret
