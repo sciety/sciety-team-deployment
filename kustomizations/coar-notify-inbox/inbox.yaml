@@ -84,7 +84,7 @@ spec:
   chart:
     spec:
       chart: psmdb-db
-      version: 1.17.0
+      version: ${db_chart_version}
       sourceRef:
         kind: HelmRepository
         name: percona
