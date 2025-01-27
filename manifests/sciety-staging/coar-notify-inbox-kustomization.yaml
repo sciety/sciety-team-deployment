@@ -15,3 +15,4 @@ spec:
   postBuild:
     substitute:
       environment_name: staging
+      db_chart_version: 1.17.0
