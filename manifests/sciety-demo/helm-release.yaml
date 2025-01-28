@@ -22,10 +22,6 @@ spec:
   valuesFrom:
     - kind: Secret
       name: sciety--demo--secret-env-vars
-      valuesKey: APP_SECRET
-      targetPath: appSecret
-    - kind: Secret
-      name: sciety--demo--secret-env-vars
       valuesKey: AUTH0_CLIENT_ID
       targetPath: auth0ClientId
     - kind: Secret
