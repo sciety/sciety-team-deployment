@@ -9,5 +9,5 @@ data:
   PGPORT: "5432"
   EXPERIMENT_ENABLED: "true"
   APP_CACHE: redis
-  GOOGLE_TAG_MANAGER_ID: ""
+  GOOGLE_TAG_MANAGER_ID: "GTM-NX7CQB4"
   exportBucketName: "sciety-events-export"
