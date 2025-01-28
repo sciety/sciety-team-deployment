@@ -38,10 +38,6 @@ spec:
       targetPath: auth0CallbackUrl
     - kind: Secret
       name: sciety--demo--secret-env-vars
-      valuesKey: PRELIGHTS_FEED_KEY
-      targetPath: prelightsFeedKey
-    - kind: Secret
-      name: sciety--demo--secret-env-vars
       valuesKey: healthchecksPingKey
       targetPath: healthchecksPingKey
     - kind: ConfigMap
