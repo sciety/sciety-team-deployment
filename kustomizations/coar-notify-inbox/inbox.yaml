@@ -37,8 +37,8 @@ spec:
           periodSeconds: 30
         resources:
           requests:
-            cpu: 100m
-            memory: 256Mi
+            cpu: 50m
+            memory: 70Mi
 ---
 apiVersion: v1
 kind: Service
@@ -109,3 +109,10 @@ spec:
             resources:
               requests:
                 storage: 20Gi
+        resources:
+          limits:
+            cpu: "100m"
+            memory: "300Mi"
+          requests:
+            cpu: "50m"
+            memory: "270Mi"
