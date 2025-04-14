@@ -67,3 +67,23 @@ spec:
         tag: f50a2193eaec4b144f9420d0cbfad94bbd0d2e39
     enableEventsExportToS3: "true"
     certManagerClusterIssuer: letsencrypt
+  postRenderers:
+    - kustomize:
+        patches:
+          - target:
+              version: v1
+              kind: Deployment
+              name: sciety--demo--frontend
+            patch: |
+              apiVersion: apps/v1
+              kind: Deployment
+              metadata:
+                name: not-used
+              spec:
+                template:
+                  spec:
+                    containers:
+                    - name: app
+                      requests:
+                        cpu: 250m
+                        memory: 400Mi
