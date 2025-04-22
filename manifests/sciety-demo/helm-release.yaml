@@ -65,7 +65,7 @@ spec:
       valuesKey: exportBucketName
       targetPath: exportBucketName
   values:
-    hostname: sciety-demo.elifesciences.org
+    hostname: demo.sciety.org
     images:
       frontend:
         tag: 834e601ecdad31181e317c0499301be747b581e8
