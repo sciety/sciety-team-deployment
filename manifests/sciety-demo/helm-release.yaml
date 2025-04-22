@@ -40,6 +40,10 @@ spec:
       name: sciety--demo--secret-env-vars
       valuesKey: healthchecksPingKey
       targetPath: healthchecksPingKey
+    - kind: Secret
+      name: sciety--demo--secret-env-vars
+      valuesKey: PREREVIEW_BEARER_TOKEN
+      targetPath: prereviewBearerToken
     - kind: ConfigMap
       name: sciety--demo--public-env-vars
       valuesKey: EXPERIMENT_ENABLED
