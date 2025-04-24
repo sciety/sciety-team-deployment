@@ -1,6 +1,15 @@
-apiVersion: v1
-kind: Secret
+apiVersion: external-secrets.io/v1
+kind: ExternalSecret
 metadata:
-  name: ncrc-sheet-key
-data:
-  key: dmFsdWU=
+  name: sciety--ncrc-sheet-key
+spec:
+  refreshInterval: 1h
+  secretStoreRef:
+    name: secret-store
+    kind: ClusterSecretStore
+  target:
+    name: sncrc-sheet-key
+    creationPolicy: Owner
+  dataFrom:
+    - extract:
+        key: sciety-team/sciety-ncrc-sheet-key
