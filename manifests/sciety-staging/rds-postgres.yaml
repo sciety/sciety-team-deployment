@@ -4,7 +4,7 @@ metadata:
   name: sciety-staging
 spec:
   allocatedStorage: 20
-  dbInstanceClass: db.t4g.micro
+  dbInstanceClass: db.t3.micro
   dbInstanceIdentifier: sciety-staging
   dbName: postgres
   port: 5432
