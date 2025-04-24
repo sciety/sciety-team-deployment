@@ -5,10 +5,10 @@ resources:
   - "./sciety-git-repository.yaml"
   - "./sciety-namespace.yaml"
   - "./events-export-bucket.yaml"
+  - "./ncrc-sheet-key.yaml"
   - "./monitoring"
   - "./sciety-demo"
   - "./sciety-staging"
   - "./sciety-prod"
-
 
 namespace: sciety
