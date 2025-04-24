@@ -8,7 +8,7 @@ spec:
     name: secret-store
     kind: ClusterSecretStore
   target:
-    name: sncrc-sheet-key
+    name: ncrc-sheet-key
     creationPolicy: Owner
   dataFrom:
     - extract:
