@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sciety--staging--public-env-vars
+data:
+  # PGHOST is also added here from the RDS field export
+  PGDATABASE: postgres
+  PGUSER: postgres
+  PGPORT: "5432"
+  EXPERIMENT_ENABLED: "true"
+  APP_CACHE: redis
+  GOOGLE_TAG_MANAGER_ID: "GTM-NX7CQB4"
+  exportBucketName: "sciety-events-export"
