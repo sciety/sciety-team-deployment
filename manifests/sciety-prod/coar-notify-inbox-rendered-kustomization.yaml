@@ -9,7 +9,7 @@ spec:
     kind: GitRepository
     name: sciety-deployment
     namespace: flux-system
-  path: ./kustomizations/coar-notify-inbox
+  path: ./templated-kustomizations/coar-notify-inbox
   prune: true
   targetNamespace: sciety
   postBuild:
