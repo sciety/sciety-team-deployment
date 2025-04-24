@@ -5,6 +5,6 @@ resources:
   - "./coar-notify-inbox-rendered-kustomization.yaml"
   - "./secret-env-vars.yaml"
   - "./public-env-var-configmap.yaml"
-  - "./rds-postgres.yaml"
+#  - "./rds-postgres.yaml"
 
 namespace: sciety
