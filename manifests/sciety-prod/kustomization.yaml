@@ -4,5 +4,6 @@ kind: Kustomization
 resources:
   - "./coar-notify-inbox-rendered-kustomization.yaml"
   - "./public-env-var-configmap.yaml"
+  - "./secret-env-vars.yaml"
 
 namespace: sciety
