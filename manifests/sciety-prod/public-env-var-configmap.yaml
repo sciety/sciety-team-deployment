@@ -7,7 +7,7 @@ data:
   PGDATABASE: postgres
   PGUSER: postgres
   PGPORT: "5432"
-  EXPERIMENT_ENABLED: "true"
+  EXPERIMENT_ENABLED: "false"
   APP_CACHE: redis
   GOOGLE_TAG_MANAGER_ID: "GTM-NX7CQB4"
   exportBucketName: "sciety-events-export"
