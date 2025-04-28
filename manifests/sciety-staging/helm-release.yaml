@@ -70,7 +70,6 @@ spec:
       frontend:
         tag: 704a51ffae47176eb2e0af0013c7c7de59fb1b08
     certManagerClusterIssuer: letsencrypt
-    fathomSiteId: DBULFPXG
   postRenderers:
     - kustomize:
         patches:
