@@ -1,0 +1,94 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
+kind: HelmRelease
+metadata:
+  name: sciety--prod
+spec:
+  releaseName: sciety--prod
+  interval: 5m
+  chart:
+    spec:
+      chart: helm/sciety
+      reconcileStrategy: Revision
+      sourceRef:
+        kind: GitRepository
+        name: sciety
+      interval: 1m
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    remediation:
+      retries: 3
+  valuesFrom:
+    - kind: Secret
+      name: sciety--prod--secret-env-vars
+      valuesKey: AUTH0_CLIENT_ID
+      targetPath: auth0ClientId
+    - kind: Secret
+      name: sciety--prod--secret-env-vars
+      valuesKey: AUTH0_CLIENT_SECRET
+      targetPath: auth0ClientSecret
+    - kind: Secret
+      name: sciety--prod--secret-env-vars
+      valuesKey: AUTH0_DOMAIN
+      targetPath: auth0Domain
+    - kind: Secret
+      name: sciety--prod--secret-env-vars
+      valuesKey: AUTH0_CALLBACK_URL
+      targetPath: auth0CallbackUrl
+    - kind: Secret
+      name: sciety--prod--secret-env-vars
+      valuesKey: healthchecksPingKey
+      targetPath: healthchecksPingKey
+    - kind: Secret
+      name: sciety--prod--secret-env-vars
+      valuesKey: PREREVIEW_BEARER_TOKEN
+      targetPath: prereviewBearerToken
+    - kind: ConfigMap
+      name: sciety--prod--public-env-vars
+      valuesKey: EXPERIMENT_ENABLED
+      targetPath: experimentEnabled
+    - kind: ConfigMap
+      name: sciety--prod--public-env-vars
+      valuesKey: APP_CACHE
+      targetPath: appCache
+    - kind: ConfigMap
+      name: sciety--prod--public-env-vars
+      valuesKey: GOOGLE_TAG_MANAGER_ID
+      targetPath: googleTagManagerId
+    - kind: ConfigMap
+      name: sciety-event-shipper-config
+      valuesKey: EVENT_SHIPPER_ROLE_ARN
+      targetPath: eventShipperIAMRoleARN
+    - kind: ConfigMap
+      name: sciety--prod--public-env-vars
+      valuesKey: exportBucketName
+      targetPath: exportBucketName
+  values:
+    hostname: sciety.org
+    images:
+      frontend:
+        tag: 1c80b4b6240f0d9432ea6831ae9fd3af1537d31d
+    enableEventsExportToS3: "true"
+    certManagerClusterIssuer: letsencrypt
+  postRenderers:
+    - kustomize:
+        patches:
+          - target:
+              version: v1
+              kind: Deployment
+              name: sciety--prod--frontend
+            patch: |
+              apiVersion: apps/v1
+              kind: Deployment
+              metadata:
+                name: not-used
+              spec:
+                template:
+                  spec:
+                    containers:
+                    - name: app
+                      resources:
+                        requests:
+                          cpu: 250m
+                          memory: 400Mi
