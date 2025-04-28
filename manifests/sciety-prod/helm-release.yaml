@@ -69,7 +69,6 @@ spec:
     images:
       frontend:
         tag: 1c80b4b6240f0d9432ea6831ae9fd3af1537d31d
-    enableEventsExportToS3: "true"
     certManagerClusterIssuer: letsencrypt
     allowSiteCrawlers: "true"
   postRenderers:
