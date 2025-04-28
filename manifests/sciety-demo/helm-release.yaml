@@ -68,7 +68,7 @@ spec:
     hostname: demo.sciety.org
     images:
       frontend:
-        tag: 834e601ecdad31181e317c0499301be747b581e8
+        tag: 7c909cca2a60c3dc4be26a653f82937fb54f77a8
     enableEventsExportToS3: "true"
     certManagerClusterIssuer: letsencrypt
   postRenderers:
