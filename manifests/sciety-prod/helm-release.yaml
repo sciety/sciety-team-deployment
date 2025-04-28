@@ -68,7 +68,7 @@ spec:
     hostname: sciety.org
     images:
       frontend:
-        tag: 1c80b4b6240f0d9432ea6831ae9fd3af1537d31d
+        tag: 704a51ffae47176eb2e0af0013c7c7de59fb1b08
     certManagerClusterIssuer: letsencrypt
     allowSiteCrawlers: "true"
   postRenderers:
