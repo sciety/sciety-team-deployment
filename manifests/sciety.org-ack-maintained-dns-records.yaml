@@ -3,7 +3,6 @@ kind: RecordSet
 metadata:
   name: test-txt-record
 spec:
-  name: sciety.org.
   recordType: TXT
   ttl: 300
   hostedZoneID: Z09890101D2MRHJUSMZYW
