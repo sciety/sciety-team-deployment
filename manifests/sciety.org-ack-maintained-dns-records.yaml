@@ -15,6 +15,18 @@ spec:
 apiVersion: route53.services.k8s.aws/v1alpha1
 kind: RecordSet
 metadata:
+  name: email-dmarc
+spec:
+  name: _dmarc
+  recordType: TXT
+  ttl: 300
+  hostedZoneID: Z09890101D2MRHJUSMZYW
+  resourceRecords:
+    - value: v=DMARC1; p=none;
+---
+apiVersion: route53.services.k8s.aws/v1alpha1
+kind: RecordSet
+metadata:
   name: mx-records
 spec:
   recordType: MX
