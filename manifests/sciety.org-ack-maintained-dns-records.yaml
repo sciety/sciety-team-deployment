@@ -74,3 +74,39 @@ spec:
   hostedZoneID: Z09890101D2MRHJUSMZYW
   resourceRecords:
     - value: u37793993.wl244.sendgrid.net
+---
+apiVersion: route53.services.k8s.aws/v1alpha1
+kind: RecordSet
+metadata:
+  name: ses-verification-1
+spec:
+  name: gwsbynzoxgx4pjqjfyyzm7gstldkkkas._domainkey
+  recordType: CNAME
+  ttl: 300
+  hostedZoneID: Z09890101D2MRHJUSMZYW
+  resourceRecords:
+    - value: gwsbynzoxgx4pjqjfyyzm7gstldkkkas.dkim.amazonses.com
+---
+apiVersion: route53.services.k8s.aws/v1alpha1
+kind: RecordSet
+metadata:
+  name: ses-verification-2
+spec:
+  name: m7emn3hpzbgt7dupgbrnls7grtjjdknc._domainkey
+  recordType: CNAME
+  ttl: 300
+  hostedZoneID: Z09890101D2MRHJUSMZYW
+  resourceRecords:
+    - value: m7emn3hpzbgt7dupgbrnls7grtjjdknc.dkim.amazonses.com
+---
+apiVersion: route53.services.k8s.aws/v1alpha1
+kind: RecordSet
+metadata:
+  name: ses-verification-3
+spec:
+  name: vb4k43gbkq5eu56vlemyywfpoa5y5w53._domainkey
+  recordType: CNAME
+  ttl: 300
+  hostedZoneID: Z09890101D2MRHJUSMZYW
+  resourceRecords:
+    - value: vb4k43gbkq5eu56vlemyywfpoa5y5w53.dkim.amazonses.com
