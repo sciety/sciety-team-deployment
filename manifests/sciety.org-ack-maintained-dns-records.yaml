@@ -26,3 +26,15 @@ spec:
     - value: 5 ALT2.ASPMX.L.GOOGLE.COM.
     - value: 10 ALT3.ASPMX.L.GOOGLE.COM.
     - value: 10 ALT4.ASPMX.L.GOOGLE.COM.
+---
+apiVersion: route53.services.k8s.aws/v1alpha1
+kind: RecordSet
+metadata:
+  name: rebrandly-go-sciety
+spec:
+  name: go
+  recordType: A
+  ttl: 3600
+  hostedZoneID: Z09890101D2MRHJUSMZYW
+  resourceRecords:
+    - value: 52.72.49.79
