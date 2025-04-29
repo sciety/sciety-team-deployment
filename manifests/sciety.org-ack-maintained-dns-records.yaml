@@ -110,3 +110,39 @@ spec:
   hostedZoneID: Z09890101D2MRHJUSMZYW
   resourceRecords:
     - value: vb4k43gbkq5eu56vlemyywfpoa5y5w53.dkim.amazonses.com
+---
+apiVersion: route53.services.k8s.aws/v1alpha1
+kind: RecordSet
+metadata:
+  name: hubspot-1
+spec:
+  name: hs1-143759941._domainkey
+  recordType: CNAME
+  ttl: 300
+  hostedZoneID: Z09890101D2MRHJUSMZYW
+  resourceRecords:
+    - value: sciety-org.hs15a.dkim.hubspotemail.net.
+---
+apiVersion: route53.services.k8s.aws/v1alpha1
+kind: RecordSet
+metadata:
+  name: hubspot-2
+spec:
+  name: hs2-143759941._domainkey
+  recordType: CNAME
+  ttl: 300
+  hostedZoneID: Z09890101D2MRHJUSMZYW
+  resourceRecords:
+    - value: sciety-org.hs15b.dkim.hubspotemail.net.
+---
+apiVersion: route53.services.k8s.aws/v1alpha1
+kind: RecordSet
+metadata:
+  name: hubspot-3
+spec:
+  name: connect
+  recordType: CNAME
+  ttl: 300
+  hostedZoneID: Z09890101D2MRHJUSMZYW
+  resourceRecords:
+    - value: 143759941.sites.hscoscdn-eu1.net
