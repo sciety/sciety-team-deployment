@@ -11,3 +11,18 @@ spec:
     - value: "google-site-verification=CkWhogOskZm7nRTmjdHiD8q2NbfXOns-vp5qeHEK_5w"
     - value: "facebook-domain-verification=hr2usdynx8j2iv4mpn7i7ka0nkwaa1"
     - value: "heritage=external-dns,external-dns/owner=flux-cluster,external-dns/resource=ingress/sciety/sciety--prod--frontend"
+---
+apiVersion: route53.services.k8s.aws/v1alpha1
+kind: RecordSet
+metadata:
+  name: mx-records
+spec:
+  recordType: MX
+  ttl: 300
+  hostedZoneID: Z09890101D2MRHJUSMZYW
+  resourceRecords:
+    - value: 1 ASPMX.L.GOOGLE.COM.
+    - value: 5 ALT1.ASPMX.L.GOOGLE.COM.
+    - value: 5 ALT2.ASPMX.L.GOOGLE.COM.
+    - value: 10 ALT3.ASPMX.L.GOOGLE.COM.
+    - value: 10 ALT4.ASPMX.L.GOOGLE.COM.
