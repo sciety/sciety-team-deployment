@@ -38,3 +38,39 @@ spec:
   hostedZoneID: Z09890101D2MRHJUSMZYW
   resourceRecords:
     - value: 52.72.49.79
+---
+apiVersion: route53.services.k8s.aws/v1alpha1
+kind: RecordSet
+metadata:
+  name: folk-sendgrid-1
+spec:
+  name: 1._domainkey
+  recordType: CNAME
+  ttl: 300
+  hostedZoneID: Z09890101D2MRHJUSMZYW
+  resourceRecords:
+    - value: 1.domainkey.u37793993.wl244.sendgrid.net
+---
+apiVersion: route53.services.k8s.aws/v1alpha1
+kind: RecordSet
+metadata:
+  name: folk-sendgrid-2
+spec:
+  name: 12._domainkey
+  recordType: CNAME
+  ttl: 300
+  hostedZoneID: Z09890101D2MRHJUSMZYW
+  resourceRecords:
+    - value: 12.domainkey.u37793993.wl244.sendgrid.net
+---
+apiVersion: route53.services.k8s.aws/v1alpha1
+kind: RecordSet
+metadata:
+  name: folk-sendgrid-3
+spec:
+  name: em3684
+  recordType: CNAME
+  ttl: 300
+  hostedZoneID: Z09890101D2MRHJUSMZYW
+  resourceRecords:
+    - value: u37793993.wl244.sendgrid.net
