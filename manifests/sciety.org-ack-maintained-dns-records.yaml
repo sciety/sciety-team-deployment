@@ -1,7 +1,7 @@
 apiVersion: route53.services.k8s.aws/v1alpha1
 kind: RecordSet
 metadata:
-  name: txt-records
+  name: root-txt-records
 spec:
   recordType: TXT
   ttl: 300
