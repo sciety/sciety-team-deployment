@@ -146,3 +146,39 @@ spec:
   hostedZoneID: Z09890101D2MRHJUSMZYW
   resourceRecords:
     - value: 143759941.sites.hscoscdn-eu1.net
+---
+apiVersion: route53.services.k8s.aws/v1alpha1
+kind: RecordSet
+metadata:
+  name: ghost-blog-cms
+spec:
+  name: blog
+  recordType: CNAME
+  ttl: 3600
+  hostedZoneID: Z09890101D2MRHJUSMZYW
+  resourceRecords:
+    - value: sciety.ghost.io
+---
+apiVersion: route53.services.k8s.aws/v1alpha1
+kind: RecordSet
+metadata:
+  name: ghost-blog-email-1
+spec:
+  name: ghost.blog
+  recordType: CNAME
+  ttl: 3600
+  hostedZoneID: Z09890101D2MRHJUSMZYW
+  resourceRecords:
+    - value: ghostpro.email
+---
+apiVersion: route53.services.k8s.aws/v1alpha1
+kind: RecordSet
+metadata:
+  name: ghost-blog-email-2
+spec:
+  name: email.ghost.blog
+  recordType: CNAME
+  ttl: 3600
+  hostedZoneID: Z09890101D2MRHJUSMZYW
+  resourceRecords:
+    - value: mailgun.org
