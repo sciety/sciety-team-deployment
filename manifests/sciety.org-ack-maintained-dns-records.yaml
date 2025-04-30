@@ -22,7 +22,7 @@ spec:
   ttl: 300
   hostedZoneID: Z09890101D2MRHJUSMZYW
   resourceRecords:
-    - value: v=DMARC1; p=none;
+    - value: '"v=DMARC1; p=none;"'
 ---
 apiVersion: route53.services.k8s.aws/v1alpha1
 kind: RecordSet
