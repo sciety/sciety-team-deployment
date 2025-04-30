@@ -39,6 +39,18 @@ spec:
 apiVersion: route53.services.k8s.aws/v1alpha1
 kind: RecordSet
 metadata:
+  name: ghost-domain-key
+spec:
+  name: k1._domainkey.ghost.blog
+  recordType: TXT
+  ttl: 3600
+  hostedZoneID: Z09890101D2MRHJUSMZYW
+  resourceRecords:
+    - value: '"k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC/2Wq266FhEdZdzzsZ9sLDaAKE1XlXPHDy/xkkmgXnOOPInceN23f87D/QDhY9HPbXl3DI+inhFMumCMS3HPT7+jDHhAQOSbRUHa3patMhL6JfPPd6gmTgCiHZnURgoFJjVQOgbtrlPpD3oIz2TvmK4Xu/u+c66HklvG0AN2IqpQIDAQAB"'
+---
+apiVersion: route53.services.k8s.aws/v1alpha1
+kind: RecordSet
+metadata:
   name: mx-records
 spec:
   recordType: MX
