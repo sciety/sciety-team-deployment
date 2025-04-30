@@ -27,6 +27,18 @@ spec:
 apiVersion: route53.services.k8s.aws/v1alpha1
 kind: RecordSet
 metadata:
+  name: email-dkim
+spec:
+  name: mail._domainkey
+  recordType: TXT
+  ttl: 60
+  hostedZoneID: Z09890101D2MRHJUSMZYW
+  resourceRecords:
+    - value: '"v=DKIM1; h=sha256; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzueGZSRlbkJHrZ5gJXog5exqBeFgyQge7Mt+/ikIDf4+M54BiCVZriB4vTqMkJjttSrSZbYzUSaXF777uyEK+Inf6eAmh7EomSBTGtBOHfeT3BCoZgWyp5V+g6nc8qrPzIKj5cTif7Zbsef4rkhTd1fElC14+seFaEAPXtHqSsmMa" "Myk41ATcj2KCaeJPGk0wJYTgRIXpOode9" "oQjtR0UMYwMfIFTRbhdDoE37BHy1BaG1HCU02XpkjHwN56Ys7aNo8tHOyLv6gj25V51PX08RYtS2xT6DvVdq00EYFHBOeMTk3tPhGcr0FZVrde1FjCnX+hQYZRw8MbXPQfCUG38wIDAQAB"'
+---
+apiVersion: route53.services.k8s.aws/v1alpha1
+kind: RecordSet
+metadata:
   name: mx-records
 spec:
   recordType: MX
