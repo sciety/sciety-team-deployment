@@ -92,4 +92,4 @@ spec:
                       resources:
                         requests:
                           cpu: 1
-                          memory: 1.5Gi
+                          memory: 2.3Gi
