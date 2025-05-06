@@ -24,11 +24,12 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
+  "id": 9,
   "links": [],
   "panels": [
     {
       "datasource": {
-        "type": "victorialogs-datasource",
+        "type": "victoriametrics-logs-datasource",
         "uid": "P022A0A8F82CACB18"
       },
       "description": "",
@@ -144,7 +145,7 @@
             "uid": "P022A0A8F82CACB18"
           },
           "editorMode": "code",
-          "expr": "kubernetes.pod_labels.app.kubernetes.io/name: \"sciety\"\nAND kubernetes.pod_labels.app.kubernetes.io/instance:\"sciety--demo\"\nAND kubernetes.pod_labels.app.kubernetes.io/component:\"frontend\"\nAND \"Sent HTTP response\"\n| extract_regexp '\"status\":(?P<status>[2-5]+)[0-9]{2},'\n| stats by(status) count() logs_total\n",
+          "expr": "kubernetes.pod_labels.app.kubernetes.io/name: \"sciety\"\nAND kubernetes.pod_labels.app.kubernetes.io/instance:\"sciety--prod\"\nAND kubernetes.pod_labels.app.kubernetes.io/component:\"frontend\"\nAND \"Sent HTTP response\"\n| extract_regexp '\"status\":(?P<status>[2-5]+)[0-9]{2},'\n| stats by(status) count() logs_total\n",
           "legendFormat": "{{status}}xx",
           "queryType": "statsRange",
           "refId": "A"
@@ -155,7 +156,7 @@
     },
     {
       "datasource": {
-        "type": "victorialogs-datasource",
+        "type": "victoriametrics-logs-datasource",
         "uid": "P022A0A8F82CACB18"
       },
       "fieldConfig": {
@@ -330,7 +331,7 @@
             "uid": "P022A0A8F82CACB18"
           },
           "editorMode": "code",
-          "expr": "kubernetes.pod_labels.app.kubernetes.io/name: \"sciety\"\nAND kubernetes.pod_labels.app.kubernetes.io/instance:\"sciety--demo\"\nAND kubernetes.pod_labels.app.kubernetes.io/component:\"frontend\"\nAND \"Sent HTTP response\"\n| extract '\"durationInMs\":<duration_msecs>,'\n| math round(duration_msecs / 1000) as request_duration_seconds\n| stats\n  quantile(0.5, request_duration_seconds) p50,\n  quantile(0.9, request_duration_seconds) p90,\n  quantile(0.99, request_duration_seconds) p99,\n  avg(request_duration_seconds) avg\n",
+          "expr": "kubernetes.pod_labels.app.kubernetes.io/name: \"sciety\"\nAND kubernetes.pod_labels.app.kubernetes.io/instance:\"sciety--prod\"\nAND kubernetes.pod_labels.app.kubernetes.io/component:\"frontend\"\nAND \"Sent HTTP response\"\n| extract '\"durationInMs\":<duration_msecs>,'\n| math (duration_msecs / 1000) as request_duration_seconds\n| stats\n  quantile(0.5, request_duration_seconds) p50,\n  quantile(0.9, request_duration_seconds) p90,\n  quantile(0.99, request_duration_seconds) p99,\n  avg(request_duration_seconds) avg\n",
           "legendFormat": "",
           "queryType": "statsRange",
           "refId": "A"
@@ -424,7 +425,7 @@
             "uid": "P4169E866C3094E38"
           },
           "editorMode": "code",
-          "expr": "rate(container_cpu_usage_seconds_total{namespace=\"sciety\", pod=~\"sciety--demo--frontend.*\", cpu=\"total\", container=\"app\"})",
+          "expr": "rate(container_cpu_usage_seconds_total{namespace=\"sciety\", pod=~\"sciety--prod--frontend.*\", cpu=\"total\", container=\"app\"})",
           "instant": false,
           "legendFormat": "{{image}}",
           "range": true,
@@ -435,11 +436,9 @@
       "type": "timeseries"
     }
   ],
-  "refresh": "5s",
+  "refresh": "",
   "schemaVersion": 39,
-  "tags": [
-    "sciety"
-  ],
+  "tags": ["sciety"],
   "templating": {
     "list": [
       {
@@ -524,7 +523,7 @@
     ]
   },
   "time": {
-    "from": "now-2d",
+    "from": "now-24h",
     "to": "now"
   },
   "timepicker": {
@@ -540,17 +539,7 @@
       "2h",
       "1d"
     ],
-    "time_options": [
-      "5m",
-      "15m",
-      "1h",
-      "6h",
-      "12h",
-      "24h",
-      "2d",
-      "7d",
-      "30d"
-    ]
+    "time_options": ["5m", "15m", "1h", "6h", "12h", "24h", "2d", "7d", "30d"]
   },
   "timezone": "browser",
   "title": "Sciety application health",
