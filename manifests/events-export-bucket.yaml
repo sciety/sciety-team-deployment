@@ -56,7 +56,6 @@ spec:
             "Condition": {
               "ForAnyValue:StringEquals": {
                 "${cluster_oidc_url}:sub": [
-                  "system:serviceaccount:sciety:sciety--demo--sciety-export-events",
                   "system:serviceaccount:sciety:sciety--staging--sciety-export-events",
                   "system:serviceaccount:sciety:sciety--prod--sciety-export-events"
                 ]
