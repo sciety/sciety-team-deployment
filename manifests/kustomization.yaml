@@ -7,7 +7,6 @@ resources:
   - "./events-export-bucket.yaml"
   - "./ncrc-sheet-key.yaml"
   - "./monitoring"
-  - "./sciety-demo"
   - "./sciety-staging"
   - "./sciety-prod"
   - "./sciety.org-ack-maintained-dns-records.yaml"
