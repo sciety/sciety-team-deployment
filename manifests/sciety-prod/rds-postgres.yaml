@@ -2,6 +2,8 @@ apiVersion: rds.services.k8s.aws/v1alpha1
 kind: DBInstance
 metadata:
   name: sciety-prod
+  annotations:
+    services.k8s.aws/deletion-policy: retain
 spec:
   allocatedStorage: 20
   dbInstanceClass: db.t3.micro
