@@ -10,5 +10,6 @@ resources:
   - "./sciety-staging"
   - "./sciety-prod"
   - "./sciety.org-ack-maintained-dns-records.yaml"
+  - "./bonfire"
 
 namespace: sciety
