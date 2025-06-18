@@ -8,5 +8,5 @@ labels:
 - includeSelectors: true
   pairs:
     app.kubernetes.io/component: discussions
-    app.kubernetes.io/instance: discussions--${env}
+    app.kubernetes.io/instance: discussions--${environment_name}
     app.kubernetes.io/name: bonfire
