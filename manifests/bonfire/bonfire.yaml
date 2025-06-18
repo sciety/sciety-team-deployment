@@ -15,4 +15,4 @@ spec:
   postBuild:
     substitute:
       environment_name: prod
-      replicas: 0
+      replicas: "0"
