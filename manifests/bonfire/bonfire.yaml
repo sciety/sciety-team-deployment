@@ -20,4 +20,4 @@ spec:
         name: bonfire-connection-details
     substitute:
       environment_name: prod
-      replicas: "1"
+      replicas: "0"
