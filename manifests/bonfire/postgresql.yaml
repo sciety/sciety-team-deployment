@@ -31,5 +31,11 @@ spec:
         kind: PerconaPGCluster
       patch: |
         - op: add
+          path: /spec/proxy/pgBouncer/config
+          value: {}
+        - op: add
+          path: /spec/proxy/pgBouncer/config/global
+          value: {}
+        - op: add
           path: /spec/proxy/pgBouncer/config/global/client_tls_sslmode
           value: allow
