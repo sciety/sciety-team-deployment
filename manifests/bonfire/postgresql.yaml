@@ -17,7 +17,7 @@ spec:
     substitute:
       # Deployment values
       cluster_name: bonfire
-      postgres_version: 16
+      postgres_version: "16"
       storage_size: 10Gi
       storage_class: sciety-gp3
 
