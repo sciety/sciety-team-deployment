@@ -18,6 +18,8 @@ spec:
     substituteFrom:
       - kind: Secret
         name: bonfire-connection-details
+      - kind: Secret
+        name: bonfire-secrets
     substitute:
       environment_name: prod
-      replicas: "0"
+      replicas: "1"

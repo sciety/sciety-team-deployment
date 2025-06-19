@@ -19,3 +19,9 @@ spec:
           value: "${POSTGRES_DB}"
         - name: POSTGRES_PASSWORD
           value: "${POSTGRES_PASSWORD}"
+        - name: SECRET_KEY_BASE
+          value: "${SECRET_KEY_BASE}"
+        - name: SIGNING_SALT
+          value: "${SIGNING_SALT}"
+        - name: ENCRYPTION_SALT
+          value: "${ENCRYPTION_SALT}"
