@@ -39,3 +39,6 @@ spec:
         - op: add
           path: /spec/proxy/pgBouncer/config/global/client_tls_sslmode
           value: allow
+        - op: add
+          path: /spec/proxy/pgBouncer/config/global/ignore_startup_parameters
+          value: statement_timeout
