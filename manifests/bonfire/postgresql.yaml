@@ -27,6 +27,9 @@ spec:
       aws_backup_s3_bucket: ${aws_backup_s3_bucket}
       aws_region: ${aws_region}
   patches:
-    - op: add
-      path: /spec/proxy/pgBouncer/config/global/client_tls_sslmode
-      value: allow
+    - target:
+        kind: PerconaPGCluster
+      patch: |
+        - op: add
+          path: /spec/proxy/pgBouncer/config/global/client_tls_sslmode
+          value: allow
