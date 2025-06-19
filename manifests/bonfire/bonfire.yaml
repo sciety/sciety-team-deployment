@@ -13,7 +13,7 @@ spec:
   prune: true
   targetNamespace: sciety
   dependsOn:
-    - bonfire-database
+    - name: bonfire-database
   postBuild:
     substituteFrom:
       - kind: Secret
