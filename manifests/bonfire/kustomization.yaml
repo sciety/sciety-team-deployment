@@ -3,5 +3,6 @@ kind: Kustomization
 
 resources:
   - "./bonfire.yaml"
+  - "./postgresql.yaml"
 
 namespace: sciety
