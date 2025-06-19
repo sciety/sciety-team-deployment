@@ -10,3 +10,12 @@ spec:
       containers:
       - name: web
         image: bonfirenetworks/bonfire:latest-open_science
+      env:
+      - name: POSTGRES_HOST
+        value: "${POSTGRES_HOST}"
+      - name: POSTGRES_USER
+        value: "${POSTGRES_USER}"
+      - name: POSTGRES_DB
+        value: "${POSTGRES_DB}"
+      - name: POSTGRES_PASSWORD
+        value: "${POSTGRES_PASSWORD}"

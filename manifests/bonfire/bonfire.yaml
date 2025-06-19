@@ -12,7 +12,12 @@ spec:
   path: ./templated-kustomizations/bonfire/web
   prune: true
   targetNamespace: sciety
+  dependsOn:
+    - bonfire-database
   postBuild:
+    substituteFrom:
+      - kind: Secret
+        name: bonfire-connection-details
     substitute:
       environment_name: prod
-      replicas: "0"
+      replicas: "1"
