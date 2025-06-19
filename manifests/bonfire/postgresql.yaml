@@ -1,44 +1,104 @@
 ---
-apiVersion: kustomize.toolkit.fluxcd.io/v1
-kind: Kustomization
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
 metadata:
   name: bonfire-database
   namespace: sciety
 spec:
-  interval: 1m0s
-  sourceRef:
-    kind: GitRepository
-    name: flux-system
-    namespace: flux-system
-  path: ./kustomizations/utils/pg-cluster
-  prune: true
-  targetNamespace: sciety
-  postBuild:
-    substitute:
-      # Deployment values
-      cluster_name: bonfire
-      postgres_version: "16"
-      storage_size: 10Gi
-      storage_class: sciety-gp3
+  interval: 1m
+  releaseName: bonfire-database
+  chart:
+    spec:
+      chart: pg-db
+      version: 2.6.0
+      sourceRef:
+        kind: HelmRepository
+        name: percona
+        namespace: db-operator-system
+      interval: 1m
 
-      # Backup values
-      project: sciety-bonfire
-      aws_backup_service_account_role_arn: ${aws_backup_service_account_role_arn}
-      aws_backup_s3_bucket: ${aws_backup_s3_bucket}
-      aws_region: ${aws_region}
-  patches:
-    - target:
-        kind: PerconaPGCluster
-      patch: |
-        - op: add
-          path: /spec/proxy/pgBouncer/config
-          value: {}
-        - op: add
-          path: /spec/proxy/pgBouncer/config/global
-          value: {}
-        - op: add
-          path: /spec/proxy/pgBouncer/config/global/client_tls_sslmode
-          value: allow
-        - op: add
-          path: /spec/proxy/pgBouncer/config/global/ignore_startup_parameters
-          value: statement_timeout, idle_in_transaction_session_timeout
+  values:
+    instances:
+    - name: instance1
+      replicas: 3
+      dataVolumeClaimSpec:
+        accessModes:
+        - ReadWriteOnce
+        resources:
+          requests:
+            storage: 10Gi
+        storageClassName: sciety-gp3
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/arch
+                operator: In
+                values:
+                - amd64
+    metadata:
+      annotations:
+        eks.amazonaws.com/role-arn: "${aws_backup_service_account_role_arn}"
+
+
+    backups:
+      pgbackrest:
+        global:
+          repo1-path: /sciety/bonfire
+          repo1-retention-full: "14"
+          repo1-retention-full-type: time
+          repo1-s3-key-type: web-id
+        manual:
+          repoName: repo1
+        jobs:
+          affinity:
+            nodeAffinity:
+              requiredDuringSchedulingIgnoredDuringExecution:
+                nodeSelectorTerms:
+                - matchExpressions:
+                  - key: kubernetes.io/arch
+                    operator: In
+                    values:
+                    - amd64
+            podAntiAffinity:
+              preferredDuringSchedulingIgnoredDuringExecution:
+              - podAffinityTerm:
+                  labelSelector:
+                    matchLabels:
+                      postgres-operator.crunchydata.com/data: pgbackrest
+                  topologyKey: kubernetes.io/hostname
+                weight: 1
+        repos:
+        - name: repo1
+          s3:
+            bucket: ${aws_backup_s3_bucket}
+            endpoint: s3.${aws_region}.amazonaws.com
+            region: ${aws_region}
+          schedules:
+            differential: 0 1 * * 1-6
+            full: 0 0 * * 6
+    proxy:
+      pgBouncer:
+        replicas: 3
+        config:
+          global:
+            client_tls_sslmode: allow
+            ignore_startup_parameters: statement_timeout, idle_in_transaction_session_timeout
+        affinity:
+          nodeAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              nodeSelectorTerms:
+              - matchExpressions:
+                - key: kubernetes.io/arch
+                  operator: In
+                  values:
+                  - amd64
+          podAntiAffinity:
+            preferredDuringSchedulingIgnoredDuringExecution:
+            - podAffinityTerm:
+                labelSelector:
+                  matchLabels:
+                    postgres-operator.crunchydata.com/role: pgbouncer
+                topologyKey: kubernetes.io/hostname
+              weight: 1
