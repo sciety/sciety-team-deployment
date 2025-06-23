@@ -39,6 +39,7 @@ spec:
           requests:
             cpu: 50m
             memory: 70Mi
+            ephemeral-storage: 10Mi
 ---
 apiVersion: v1
 kind: Service
