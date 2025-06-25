@@ -11,7 +11,7 @@ spec:
       - name: migration
         image: bonfirenetworks/bonfire:latest-open_science
         args:
-          - ./bonfire
+          - ./bin/bonfire
           - eval
           - Bonfire.Common.Repo.migrate
       containers:
