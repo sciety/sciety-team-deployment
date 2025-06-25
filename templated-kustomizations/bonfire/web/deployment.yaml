@@ -11,7 +11,7 @@ spec:
         kubernetes.io/arch: amd64
       initContainers:
       - name: migration
-        image: bonfirenetworks/bonfire:1.0.0-rc.1.19-open_science-amd64@sha256:2c04deb142a79a30d9b976214aac667862276699657182befdc3d6e46c240a29
+        image: bonfirenetworks/bonfire:1.0.0-rc.1.18-open_science-amd64@sha256:1ae771d29e754c3631e7637ca40599348f756e949e658be4350a1adf47372d8b
         args:
           - ./bin/bonfire
           - eval
@@ -33,7 +33,7 @@ spec:
           value: "${ENCRYPTION_SALT}"
       containers:
       - name: web
-        image: bonfirenetworks/bonfire:1.0.0-rc.1.19-open_science-amd64@sha256:2c04deb142a79a30d9b976214aac667862276699657182befdc3d6e46c240a29
+        image: bonfirenetworks/bonfire:1.0.0-rc.1.18-open_science-amd64@sha256:1ae771d29e754c3631e7637ca40599348f756e949e658be4350a1adf47372d8b
         env:
         - name: POSTGRES_HOST
           value: "${POSTGRES_HOST}"
