@@ -25,13 +25,9 @@ spec:
           value: "${POSTGRES_PASSWORD}"
         - name: SECRET_KEY_BASE
           value: "${SECRET_KEY_BASE}"
-        - name: SIGNING_SALT
-          value: "${SIGNING_SALT}"
-        - name: ENCRYPTION_SALT
-          value: "${ENCRYPTION_SALT}"
       containers:
       - name: web
-        image: bonfirenetworks/bonfire:latest-open_science
+        image: bonfirenetworks/bonfire:latest-open_science@sha256:3c8bbde67ec3159e239a7c0d148975febae7da918cb84999530a6735f3b80581
         env:
         - name: POSTGRES_HOST
           value: "${POSTGRES_HOST}"
