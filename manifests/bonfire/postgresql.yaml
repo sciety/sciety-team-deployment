@@ -44,9 +44,13 @@ spec:
           value: statement_timeout, idle_in_transaction_session_timeout
         - op:add
           path: /spec/databaseInitSQL
-          value:
-            key: init.sql
-            name: bonfire-init-sql
+          value: {}
+        - op:add
+          path: /spec/databaseInitSQL/name
+          value: bonfire-init-sql
+        - op:add
+          path: /spec/databaseInitSQL/key
+          value:  init.sql
 ---
 # This is to allow schema migrations to happen
 apiVersion: v1
