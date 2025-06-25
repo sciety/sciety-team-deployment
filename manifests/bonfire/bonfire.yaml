@@ -22,5 +22,5 @@ spec:
         name: bonfire-secrets
     substitute:
       environment_name: prod
-      replicas: "1"
+      replicas: "0"
       hostname: "discussions.sciety.org"
