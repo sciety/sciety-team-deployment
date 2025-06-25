@@ -42,15 +42,15 @@ spec:
         - op: add
           path: /spec/proxy/pgBouncer/config/global/ignore_startup_parameters
           value: statement_timeout, idle_in_transaction_session_timeout
-        - op:add
+        - op: add
           path: /spec/databaseInitSQL
           value: {}
-        - op:add
+        - op: add
           path: /spec/databaseInitSQL/name
           value: bonfire-init-sql
-        - op:add
+        - op: add
           path: /spec/databaseInitSQL/key
-          value:  init.sql
+          value: init.sql
 ---
 # This is to allow schema migrations to happen
 apiVersion: v1
