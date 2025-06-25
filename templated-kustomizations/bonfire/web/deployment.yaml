@@ -8,10 +8,10 @@ spec:
   template:
     spec:
       nodeSelector:
-        kubernetes.io/arch: arm64
+        kubernetes.io/arch: amd64
       initContainers:
       - name: migration
-        image: bonfirenetworks/bonfire:1.0.0-rc.1.19-open_science-aarch64@sha256:b63e46783c5f6458aeabd8d63ccb0d81fa7ce264340da246ffd72d24075922bd
+        image: bonfirenetworks/bonfire:1.0.0-rc.1.19-open_science-amd64@sha256:2c04deb142a79a30d9b976214aac667862276699657182befdc3d6e46c240a29
         args:
           - ./bin/bonfire
           - eval
@@ -33,7 +33,7 @@ spec:
           value: "${ENCRYPTION_SALT}"
       containers:
       - name: web
-        image: bonfirenetworks/bonfire:1.0.0-rc.1.19-open_science-aarch64@sha256:b63e46783c5f6458aeabd8d63ccb0d81fa7ce264340da246ffd72d24075922bd
+        image: bonfirenetworks/bonfire:1.0.0-rc.1.19-open_science-amd64@sha256:2c04deb142a79a30d9b976214aac667862276699657182befdc3d6e46c240a29
         env:
         - name: POSTGRES_HOST
           value: "${POSTGRES_HOST}"
