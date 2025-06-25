@@ -19,5 +19,5 @@ spec:
                   number: 4000
   tls:
     - hosts:
-        - ${hostname}-tls
+        - ${hostname}
       secretName: ${hostname}-tls
