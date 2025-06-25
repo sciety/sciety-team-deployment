@@ -1,59 +1,59 @@
----
-apiVersion: kustomize.toolkit.fluxcd.io/v1
-kind: Kustomization
-metadata:
-  name: bonfire-database
-  namespace: sciety
-spec:
-  interval: 1m0s
-  sourceRef:
-    kind: GitRepository
-    name: flux-system
-    namespace: flux-system
-  path: ./kustomizations/utils/pg-cluster
-  prune: true
-  targetNamespace: sciety
-  postBuild:
-    substitute:
-      # Deployment values
-      cluster_name: bonfire
-      postgres_version: "16"
-      storage_size: 10Gi
-      storage_class: sciety-gp3
-      image_suffix: -gis
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1
+# kind: Kustomization
+# metadata:
+#   name: bonfire-database
+#   namespace: sciety
+# spec:
+#   interval: 1m0s
+#   sourceRef:
+#     kind: GitRepository
+#     name: flux-system
+#     namespace: flux-system
+#   path: ./kustomizations/utils/pg-cluster
+#   prune: true
+#   targetNamespace: sciety
+#   postBuild:
+#     substitute:
+#       # Deployment values
+#       cluster_name: bonfire
+#       postgres_version: "16"
+#       storage_size: 10Gi
+#       storage_class: sciety-gp3
+#       image_suffix: -gis
 
-      # Backup values
-      project: sciety-bonfire
-      aws_backup_service_account_role_arn: ${aws_backup_service_account_role_arn}
-      aws_backup_s3_bucket: ${aws_backup_s3_bucket}
-      aws_region: ${aws_region}
-  patches:
-    - target:
-        kind: PerconaPGCluster
-      patch: |
-        - op: add
-          path: /spec/proxy/pgBouncer/config
-          value: {}
-        - op: add
-          path: /spec/proxy/pgBouncer/config/global
-          value: {}
-        - op: add
-          path: /spec/proxy/pgBouncer/config/global/client_tls_sslmode
-          value: allow
-        - op: add
-          path: /spec/proxy/pgBouncer/config/global/ignore_startup_parameters
-          value: statement_timeout, idle_in_transaction_session_timeout
-        - op: add
-          path: /spec/databaseInitSQL
-          value: {}
-        - op: add
-          path: /spec/databaseInitSQL/name
-          value: bonfire-init-sql
-        - op: add
-          path: /spec/databaseInitSQL/key
-          value: init.sql
+#       # Backup values
+#       project: sciety-bonfire
+#       aws_backup_service_account_role_arn: ${aws_backup_service_account_role_arn}
+#       aws_backup_s3_bucket: ${aws_backup_s3_bucket}
+#       aws_region: ${aws_region}
+#   patches:
+#     - target:
+#         kind: PerconaPGCluster
+#       patch: |
+#         - op: add
+#           path: /spec/proxy/pgBouncer/config
+#           value: {}
+#         - op: add
+#           path: /spec/proxy/pgBouncer/config/global
+#           value: {}
+#         - op: add
+#           path: /spec/proxy/pgBouncer/config/global/client_tls_sslmode
+#           value: allow
+#         - op: add
+#           path: /spec/proxy/pgBouncer/config/global/ignore_startup_parameters
+#           value: statement_timeout, idle_in_transaction_session_timeout
+#         - op: add
+#           path: /spec/databaseInitSQL
+#           value: {}
+#         - op: add
+#           path: /spec/databaseInitSQL/name
+#           value: bonfire-init-sql
+#         - op: add
+#           path: /spec/databaseInitSQL/key
+#           value: init.sql
 ---
-# This is to allow schema migrations to happen
+# This is to allow schema migrations to happen, and enable POSTGIS
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -62,3 +62,4 @@ data:
   init.sql: |
     \c bonfire
     GRANT CREATE ON SCHEMA public TO "bonfire";
+    CREATE EXTENSION postgis;
