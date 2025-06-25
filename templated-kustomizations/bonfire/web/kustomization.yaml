@@ -3,6 +3,8 @@ kind: Kustomization
 namespace: sciety
 resources:
 - deployment.yaml
+- service.yaml
+- ingress.yaml
 
 labels:
 - includeSelectors: true
