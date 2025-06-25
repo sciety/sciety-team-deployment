@@ -20,6 +20,7 @@ spec:
       postgres_version: "16"
       storage_size: 10Gi
       storage_class: sciety-gp3
+      image_suffix: -gis
 
       # Backup values
       project: sciety-bonfire
