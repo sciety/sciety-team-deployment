@@ -9,31 +9,9 @@ spec:
     spec:
       nodeSelector:
         kubernetes.io/arch: amd64
-      initContainers:
-      - name: migration
-        image: bonfirenetworks/bonfire:1.0.0-rc.1.19-open_science-amd64@sha256:2c04deb142a79a30d9b976214aac667862276699657182befdc3d6e46c240a29
-        args:
-          - ./bin/bonfire
-          - eval
-          - Bonfire.Common.Repo.migrate
-        env:
-        - name: POSTGRES_HOST
-          value: "${POSTGRES_HOST}"
-        - name: POSTGRES_USER
-          value: "${POSTGRES_USER}"
-        - name: POSTGRES_DB
-          value: "${POSTGRES_DB}"
-        - name: POSTGRES_PASSWORD
-          value: "${POSTGRES_PASSWORD}"
-        - name: SECRET_KEY_BASE
-          value: "${SECRET_KEY_BASE}"
-        - name: SIGNING_SALT
-          value: "${SIGNING_SALT}"
-        - name: ENCRYPTION_SALT
-          value: "${ENCRYPTION_SALT}"
       containers:
       - name: web
-        image: bonfirenetworks/bonfire:1.0.0-rc.1.19-open_science-amd64@sha256:2c04deb142a79a30d9b976214aac667862276699657182befdc3d6e46c240a29
+        image: bonfirenetworks/bonfire:1.0.0-rc.1.20-open_science-amd64@sha256:8852031c1d5b7d137e31f73a66d69cde2c2a37965d7a5845e550d670197556c2
         env:
         - name: POSTGRES_HOST
           value: "${POSTGRES_HOST}"
