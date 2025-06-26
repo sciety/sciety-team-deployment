@@ -3,6 +3,7 @@ kind: Kustomization
 namespace: sciety
 resources:
 - bucket.yaml
+- configmap.yaml
 
 labels:
 - includeSelectors: true
