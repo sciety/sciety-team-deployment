@@ -1,0 +1,49 @@
+---
+
+apiVersion: iam.services.k8s.aws/v1alpha1
+kind: Role
+metadata:
+  name: bonfire--${environment_name}
+spec:
+  name: bonfire--${environment_name}
+  assumeRolePolicyDocument: |
+      {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Effect": "Allow",
+            "Principal": {
+              "Federated": "${cluster_oidc_arn}"
+            },
+            "Action": "sts:AssumeRoleWithWebIdentity",
+            "Condition": {
+              "ForAnyValue:StringEquals": {
+                "${cluster_oidc_url}:sub": [
+                  "system:serviceaccount:${bonfire_namespace}:bonfire--${environment_name}",
+                ]
+              }
+            }
+          }
+        ]
+      }
+  inlinePolicies:
+    giveAccessToUploadsBucket: |
+      {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+           "Action": [
+             "s3:*"
+           ],
+           "Effect": "Allow",
+           "Resource": "${uploads_bucket_arn}"
+         },
+         {
+           "Action": [
+             "s3:*"
+           ],
+           "Effect": "Allow",
+           "Resource": "${uploads_bucket_arn}/*"
+         }
+        ]
+      }
