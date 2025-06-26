@@ -27,6 +27,8 @@ spec:
           value: "${SIGNING_SALT}"
         - name: ENCRYPTION_SALT
           value: "${ENCRYPTION_SALT}"
+        - name: HOSTNAME
+          value: "${hostname}"
         ports:
         - name: http
           containerPort: 4000
