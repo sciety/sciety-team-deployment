@@ -32,8 +32,8 @@ spec:
           value: "${hostname}"
         - name: PUBLIC_PORT
           value: "443"
-        - name: UPLOADS_S3_BUCKET
-          value: ${uploads_bucket_name}
+        # - name: UPLOADS_S3_BUCKET
+        #   value: ${uploads_bucket_name}
         ports:
         - name: http
           containerPort: 4000
