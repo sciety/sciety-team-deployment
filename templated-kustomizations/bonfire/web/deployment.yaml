@@ -29,6 +29,8 @@ spec:
           value: "${ENCRYPTION_SALT}"
         - name: HOSTNAME
           value: "${hostname}"
+        - name: PUBLIC_PORT
+          value: "443"
         ports:
         - name: http
           containerPort: 4000
