@@ -12,8 +12,6 @@ spec:
   path: ./templated-kustomizations/bonfire/uploads-bucket
   prune: true
   targetNamespace: sciety
-  dependsOn:
-    - name: bonfire
   postBuild:
     substitute:
       environment_name: prod
