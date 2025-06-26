@@ -8,7 +8,7 @@ data: {}
 apiVersion: services.k8s.aws/v1alpha1
 kind: FieldExport
 metadata:
-  name: bonfire--${environment_name}-role-config
+  name: bonfire--${environment_name}-role-config-arn
 spec:
   to:
     name: bonfire--${environment_name}-role-config
@@ -19,4 +19,4 @@ spec:
     resource:
       group: iam.services.k8s.aws
       kind: Role
-      name: bonfire--${environment_name}-role-config
+      name: bonfire--${environment_name}
