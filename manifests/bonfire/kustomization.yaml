@@ -6,5 +6,6 @@ resources:
   - "./postgresql.yaml"
   - "./secrets.yaml"
   - "./uploads-bucket.yaml"
+  - "./awsrole.yaml"
 
 namespace: sciety
