@@ -23,7 +23,7 @@ spec:
       - kind: Secret
         name: bonfire-secrets
       - kind: ConfigMap
-        name: bonfire--${environment_name}-role-config
+        name: bonfire--prod-role-config
     substitute:
       environment_name: prod
       replicas: "1"
