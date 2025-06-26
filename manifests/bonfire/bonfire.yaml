@@ -14,12 +14,16 @@ spec:
   targetNamespace: sciety
   dependsOn:
     - name: bonfire-database
+    - name: bonfire-uploads-bucket
+    - name: bonfire-awsrole
   postBuild:
     substituteFrom:
       - kind: Secret
         name: bonfire-connection-details
       - kind: Secret
         name: bonfire-secrets
+      - kind: ConfigMap
+        name: bonfire--${environment_name}-role-config
     substitute:
       environment_name: prod
       replicas: "1"
