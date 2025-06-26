@@ -218,3 +218,39 @@ spec:
   hostedZoneID: Z09890101D2MRHJUSMZYW
   resourceRecords:
     - value: mailgun.org
+---
+apiVersion: route53.services.k8s.aws/v1alpha1
+kind: RecordSet
+metadata:
+  name: sendgrid-1
+spec:
+  name: s1._domainkey
+  recordType: CNAME
+  ttl: 300
+  hostedZoneID: Z09890101D2MRHJUSMZYW
+  resourceRecords:
+    - value: s1.domainkey.u53514704.wl205.sendgrid.net
+---
+apiVersion: route53.services.k8s.aws/v1alpha1
+kind: RecordSet
+metadata:
+  name: sendgrid-2
+spec:
+  name: s2._domainkey
+  recordType: CNAME
+  ttl: 300
+  hostedZoneID: Z09890101D2MRHJUSMZYW
+  resourceRecords:
+    - value: s2.domainkey.u53514704.wl205.sendgrid.net
+---
+apiVersion: route53.services.k8s.aws/v1alpha1
+kind: RecordSet
+metadata:
+  name: sendgrid-3
+spec:
+  name: em2023
+  recordType: CNAME
+  ttl: 300
+  hostedZoneID: Z09890101D2MRHJUSMZYW
+  resourceRecords:
+    - value: u53514704.wl205.sendgrid.net
