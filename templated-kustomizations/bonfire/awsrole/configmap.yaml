@@ -13,7 +13,7 @@ spec:
   to:
     name: bonfire--${environment_name}-role-config
     kind: configmap
-    key: bonfire-role-arn
+    key: bonfire_role_arn
   from:
     path: ".status.ackResourceMetadata.arn"
     resource:
