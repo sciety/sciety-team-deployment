@@ -28,3 +28,4 @@ spec:
       environment_name: prod
       replicas: "1"
       hostname: "discussions.sciety.org"
+      uploads_bucket_name: sciety-bonfire-uploads--prod
