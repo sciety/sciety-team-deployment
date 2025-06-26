@@ -19,7 +19,7 @@ spec:
             "Condition": {
               "ForAnyValue:StringEquals": {
                 "${cluster_oidc_url}:sub": [
-                  "system:serviceaccount:${bonfire_namespace}:bonfire--${environment_name}",
+                  "system:serviceaccount:${bonfire_namespace}:bonfire--${environment_name}"
                 ]
               }
             }
