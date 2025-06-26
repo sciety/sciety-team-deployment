@@ -2,16 +2,16 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: upload-bucket-config
+  name: sciety-bonfire-uploads--${environment_name}-config
 data: {}
 ---
 apiVersion: services.k8s.aws/v1alpha1
 kind: FieldExport
 metadata:
-  name: upload-bucket-config
+  name: sciety-bonfire-uploads--${environment_name}-config
 spec:
   to:
-    name: upload-bucket-config
+    name: sciety-bonfire-uploads--${environment_name}-config
     kind: configmap
     key: uploads_bucket_arn
   from:
