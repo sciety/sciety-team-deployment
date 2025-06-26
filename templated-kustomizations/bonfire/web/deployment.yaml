@@ -39,3 +39,11 @@ spec:
           requests:
             cpu: 400m
             memory: 550Mi
+        livenessProbe:
+          httpGet:
+            path: /dashboard
+            port: http
+        readinessProbe:
+          httpGet:
+            path: /dashboard
+            port: http
