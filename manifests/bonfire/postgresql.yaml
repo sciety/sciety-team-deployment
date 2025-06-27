@@ -23,7 +23,7 @@ spec:
       image_suffix: -gis
 
       # Backup values
-      project: sciety-bonfire
+      project: sciety
       aws_backup_service_account_role_arn: ${aws_backup_service_account_role_arn}
       aws_backup_s3_bucket: ${aws_backup_s3_bucket}
       aws_region: ${aws_region}
