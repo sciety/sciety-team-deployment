@@ -1,0 +1,31 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: bonfire
+  namespace: sciety
+spec:
+  interval: 1m0s
+  sourceRef:
+    kind: GitRepository
+    name: sciety-deployment
+    namespace: flux-system
+  path: ./templated-kustomizations/bonfire/web
+  prune: true
+  targetNamespace: sciety
+  dependsOn:
+    - name: bonfire-database
+    - name: bonfire-uploads-bucket
+    - name: bonfire-awsrole
+  postBuild:
+    substituteFrom:
+      - kind: Secret
+        name: bonfire-database-connection-details
+      - kind: ConfigMap
+        name: bonfire--prod-role-config
+    substitute:
+      environment_name: prod
+      replicas: "1"
+      hostname: "discussions2.sciety.org"
+      uploads_bucket_name: sciety-bonfire-uploads--prod
+      uploads_bucket_region: us-east-1
+      secret_name: bonfire-secrets
