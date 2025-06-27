@@ -6,7 +6,7 @@ resources:
   # percona postgres-operator
   - "./postgresql.yaml"
   # cnpg operator
-  - "./database.yaml"
+  - "./database"
   - "./secrets.yaml"
   - "./uploads-bucket.yaml"
   - "./awsrole.yaml"
