@@ -27,4 +27,5 @@ spec:
       replicas: "1"
       hostname: "discussions.sciety.org"
       uploads_bucket_name: sciety-bonfire-uploads--prod
+      uploads_bucket_region: us-east-1
       secret_name: bonfire-secrets

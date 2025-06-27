@@ -28,6 +28,8 @@ spec:
           value: "443"
         - name: UPLOADS_S3_BUCKET
           value: ${uploads_bucket_name}
+        - name: UPLOADS_S3_REGION
+          value: ${uploads_bucket_region}
         - name: MAIL_BACKEND
           value: sendgrid
         - name: MAIL_FROM
