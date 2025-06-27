@@ -22,12 +22,6 @@ spec:
           value: "${POSTGRES_DB}"
         - name: POSTGRES_PASSWORD
           value: "${POSTGRES_PASSWORD}"
-        - name: SECRET_KEY_BASE
-          value: "${SECRET_KEY_BASE}"
-        - name: SIGNING_SALT
-          value: "${SIGNING_SALT}"
-        - name: ENCRYPTION_SALT
-          value: "${ENCRYPTION_SALT}"
         - name: HOSTNAME
           value: "${hostname}"
         - name: PUBLIC_PORT
@@ -36,10 +30,11 @@ spec:
           value: ${uploads_bucket_name}
         - name: MAIL_BACKEND
           value: sendgrid
-        - name: MAIL_KEY
-          value: "${MAIL_KEY}"
         - name: MAIL_FROM
           value: discussions@sciety.org
+        envFrom:
+        - secretRef:
+            name: ${secret_name}
         ports:
         - name: http
           containerPort: 4000

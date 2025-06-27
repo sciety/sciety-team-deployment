@@ -20,8 +20,6 @@ spec:
     substituteFrom:
       - kind: Secret
         name: bonfire-connection-details
-      - kind: Secret
-        name: bonfire-secrets
       - kind: ConfigMap
         name: bonfire--prod-role-config
     substitute:
@@ -29,3 +27,4 @@ spec:
       replicas: "1"
       hostname: "discussions.sciety.org"
       uploads_bucket_name: sciety-bonfire-uploads--prod
+      secret_name: bonfire-secrets
