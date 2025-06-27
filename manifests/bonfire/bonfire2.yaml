@@ -24,7 +24,7 @@ spec:
         name: bonfire--prod-role-config
     substitute:
       environment_name: prod2
-      replicas: "1"
+      replicas: "0"
       hostname: "discussions2.sciety.org"
       uploads_bucket_name: sciety-bonfire-uploads--prod
       uploads_bucket_region: us-east-1
