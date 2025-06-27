@@ -3,7 +3,10 @@ kind: Kustomization
 
 resources:
   - "./bonfire.yaml"
+  # percona postgres-operator
   - "./postgresql.yaml"
+  # cnpg operator
+  - "./database.yaml"
   - "./secrets.yaml"
   - "./uploads-bucket.yaml"
   - "./awsrole.yaml"
