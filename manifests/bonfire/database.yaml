@@ -8,8 +8,10 @@ spec:
   bootstrap:
     initdb:
       database: bonfire
-      owner: bonfire
-      # Let the operator generate a password
+      owner: bonfire # Let the operator generate a password
+      postInitSQL:
+        # Allow bonfire to run it's own migrations
+        - GRANT CREATE ON SCHEMA public TO "bonfire";
   imageCatalogRef:
     apiGroup: postgresql.cnpg.io
     kind: ClusterImageCatalog
