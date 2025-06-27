@@ -4,7 +4,7 @@ kind: Cluster
 metadata:
   name: bonfire-database
 spec:
-  instances: 1
+  instances: 3
   bootstrap:
     initdb:
       database: bonfire
