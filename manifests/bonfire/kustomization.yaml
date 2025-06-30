@@ -4,12 +4,9 @@ kind: Kustomization
 resources:
   # percona postgres-operator
   - "./postgresql.yaml"
-  # cnpg operator
-  - "./database"
   - "./secrets.yaml"
   - "./uploads-bucket.yaml"
   - "./awsrole.yaml"
   - "./bonfire.yaml"
-  - "./bonfire2.yaml"
 
 namespace: sciety
