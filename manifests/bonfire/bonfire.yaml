@@ -19,7 +19,7 @@ spec:
   postBuild:
     substituteFrom:
       - kind: Secret
-        name: bonfire-connection-details
+        name: bonfire-database-connection-details
       - kind: ConfigMap
         name: bonfire--prod-role-config
     substitute:
