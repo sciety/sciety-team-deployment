@@ -52,9 +52,6 @@ spec:
         - op: add
           path: /spec/databaseInitSQL/key
           value: init.sql
-        - op: add
-          path: /spec/pause
-          value: true
 ---
 # This is to allow schema migrations to happen, and enable POSTGIS
 apiVersion: v1
