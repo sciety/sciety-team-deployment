@@ -31,4 +31,5 @@ spec:
       hostname: "discussions.sciety.org"
       uploads_bucket_name: sciety-bonfire-uploads--prod
       uploads_bucket_region: us-east-1
+      uploads_bucket_endpoint: s3.us-east-1.amazonaws.com
       secret_name: bonfire-secrets

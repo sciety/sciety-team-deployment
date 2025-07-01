@@ -30,6 +30,8 @@ spec:
           value: ${uploads_bucket_name}
         - name: UPLOADS_S3_REGION
           value: ${uploads_bucket_region}
+        - name: UPLOADS_S3_HOST
+          value: ${uploads_bucket_endpoint}
         - name: MAIL_BACKEND
           value: sendgrid
         - name: MAIL_FROM
