@@ -12,7 +12,7 @@ spec:
         kubernetes.io/arch: amd64
       containers:
       - name: web
-        image: bonfirenetworks/bonfire:1.0.0-rc.1.20-open_science-amd64@sha256:8852031c1d5b7d137e31f73a66d69cde2c2a37965d7a5845e550d670197556c2
+        image: bonfirenetworks/bonfire:latest-open_science-amd64
         env:
         - name: POSTGRES_HOST
           value: "${POSTGRES_HOST}"
