@@ -1,0 +1,34 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: meilisearch
+  namespace: sciety
+spec:
+  interval: 5m
+  url: https://meilisearch.github.io/meilisearch-kubernetes
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
+kind: HelmRelease
+metadata:
+  name: meilisearch
+  namespace: sciety
+spec:
+  interval: 5m
+  releaseName: meilisearch
+  chart:
+    spec:
+      chart:  meilisearch
+      version: 0.15.0
+      sourceRef:
+        kind: HelmRepository
+        name: meilisearch
+      interval: 1m
+  values:
+    persistence:
+      enabled: true
+      storageClass: sciety-gp3
+      size: 10Gi
+
+    serviceMonitor:
+      enabled: true
