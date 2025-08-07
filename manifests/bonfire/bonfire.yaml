@@ -18,7 +18,7 @@ spec:
     - name: bonfire-awsrole
   images:
     - name: bonfirenetworks/bonfire
-      newTag: 1.0.0-rc.1.29-open_science-amd64@sha256:c52a6d25fe4a41c57018c7b86d8de348b5a51ab3511d8483a9bdbe6bb79f6a32
+      newTag: 1.0.0-rc.2.5-open_science-amd64@sha256:cfba6ea65cf4ef9a51e83a9fb3de7ca749b66d014ec6e8f9d13d54108ed0b96d
   postBuild:
     substituteFrom:
       - kind: Secret
