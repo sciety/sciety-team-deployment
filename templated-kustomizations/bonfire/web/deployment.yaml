@@ -36,6 +36,8 @@ spec:
           value: sendgrid
         - name: MAIL_FROM
           value: discussions@sciety.org
+        - name: SEARCH_ADAPTER
+          value: meili
         - name: SEARCH_MEILI_INSTANCE
           value: ${meili_search_instance}
         envFrom:
