@@ -15,7 +15,7 @@ spec:
   imageRepositoryRef:
     name: bonfire
   filterTags:
-    pattern: '^1.0.0-(?P<semver>.*)-open_science-amd64$'
+    pattern: '^(?P<semver>.*)-open_science-amd64'
     extract: '$semver'
   policy:
     semver:
