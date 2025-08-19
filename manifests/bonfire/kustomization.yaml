@@ -3,11 +3,10 @@ kind: Kustomization
 
 resources:
   - "./meilisearch.yaml"
-  # percona postgres-operator
   - "./postgresql.yaml"
   - "./secrets.yaml"
   - "./uploads-bucket.yaml"
   - "./awsrole.yaml"
   - "./bonfire.yaml"
-
+  - "./updateautomation.yaml"
 namespace: sciety

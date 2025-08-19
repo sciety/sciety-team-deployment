@@ -18,7 +18,9 @@ spec:
     - name: bonfire-awsrole
   images:
     - name: bonfirenetworks/bonfire
-      newTag: 1.0.0-rc.2.5-open_science-amd64@sha256:cfba6ea65cf4ef9a51e83a9fb3de7ca749b66d014ec6e8f9d13d54108ed0b96d
+      newName: bonfirenetworks/bonfire # {"$imagepolicy": "sciety:bonfire-open-science-rc:name"}
+      newTag: 1.0.0-rc.2.5-open_science-amd64 # {"$imagepolicy": "sciety:bonfire-open-science-rc:tag"}
+      digest: sha256:cfba6ea65cf4ef9a51e83a9fb3de7ca749b66d014ec6e8f9d13d54108ed0b96d  # {"$imagepolicy": "sciety:bonfire-open-science-rc:digest"}
   postBuild:
     substituteFrom:
       - kind: Secret
