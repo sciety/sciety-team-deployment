@@ -10,12 +10,12 @@ spec:
 apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImagePolicy
 metadata:
-  name: bonfire-open-science
+  name: bonfire-open-science-rc
 spec:
   imageRepositoryRef:
     name: bonfire
   filterTags:
-    pattern: '^(?P<semver>.*)-open_science-amd64'
+    pattern: '^1.0.0-rc\.(?P<semver>.*?)-open_science-amd64'
     extract: '$semver'
   policy:
     semver:
