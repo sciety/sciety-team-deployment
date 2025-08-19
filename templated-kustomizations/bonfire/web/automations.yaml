@@ -16,7 +16,7 @@ spec:
     name: bonfire
   filterTags:
     pattern: ^(?P<semver>.*?)-open_science-amd64
-    extract: '$semver.0'
+    extract: '$semver'
   policy:
     semver:
       range: '*'
