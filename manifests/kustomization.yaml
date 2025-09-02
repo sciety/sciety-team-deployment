@@ -11,5 +11,6 @@ resources:
   - "./sciety-prod"
   - "./sciety.org-ack-maintained-dns-records.yaml"
   - "./bonfire"
+  - "./dev-discussions-dns.yaml"
 
 namespace: sciety
