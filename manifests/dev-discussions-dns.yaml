@@ -1,0 +1,12 @@
+---
+apiVersion: route53.services.k8s.aws/v1alpha1
+kind: RecordSet
+metadata:
+  name: dev-discussions
+spec:
+  hostedZoneID: Z09890101D2MRHJUSMZYW
+  name: dev-discussions
+  recordType: A
+  ttl: 3600
+  resourceRecords:
+    - value: 168.119.178.113
