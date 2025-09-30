@@ -19,8 +19,8 @@ spec:
   images:
     - name: bonfirenetworks/bonfire
       newName: bonfirenetworks/bonfire # {"$imagepolicy": "sciety:bonfire-open-science-rc:name"}
-      newTag: 1.0.0-rc.2.29-open_science-amd64 # {"$imagepolicy": "sciety:bonfire-open-science-rc:tag"}
-      digest: sha256:7bb4146062500eddf2db41111b257dd89577fdeb3b675a0f83f6e3297f924f62 # {"$imagepolicy": "sciety:bonfire-open-science-rc:digest"}
+      newTag: 1.0.0-rc.2.30-open_science-amd64 # {"$imagepolicy": "sciety:bonfire-open-science-rc:tag"}
+      digest: sha256:a1452ef10245fff2688263c8705cbf3127d5cae20120f6b32d7060c28e3a17a6 # {"$imagepolicy": "sciety:bonfire-open-science-rc:digest"}
   postBuild:
     substituteFrom:
       - kind: Secret
