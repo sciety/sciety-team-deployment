@@ -1,5 +1,5 @@
 ---
-apiVersion: image.toolkit.fluxcd.io/v1beta2
+apiVersion: image.toolkit.fluxcd.io/v1
 kind: ImageRepository
 metadata:
   name: bonfire
@@ -7,7 +7,7 @@ spec:
   interval: 5m
   image: bonfirenetworks/bonfire
 # ---
-# apiVersion: image.toolkit.fluxcd.io/v1beta2
+# apiVersion: image.toolkit.fluxcd.io/v1
 # kind: ImagePolicy
 # metadata:
 #   name: bonfire-open-science
@@ -22,7 +22,7 @@ spec:
 #       range: '*'
 #   digestReflectionPolicy: IfNotPresent
 ---
-apiVersion: image.toolkit.fluxcd.io/v1beta2
+apiVersion: image.toolkit.fluxcd.io/v1
 kind: ImagePolicy
 metadata:
   name: bonfire-open-science-rc
