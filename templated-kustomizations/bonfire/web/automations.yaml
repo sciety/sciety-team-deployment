@@ -31,7 +31,7 @@ spec:
     name: bonfire
   filterTags:
     pattern: ^1\.0\.0-rc\.(?P<major>\d+)(\.(?P<minor>\d+))?-open_science-amd64
-    extract: '$major.$minor.0'
+    extract: '$major.0$minor.0'
   policy:
     semver:
       range: '*'
