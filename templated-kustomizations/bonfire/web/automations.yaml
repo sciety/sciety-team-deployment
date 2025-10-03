@@ -30,7 +30,7 @@ spec:
   imageRepositoryRef:
     name: bonfire
   filterTags:
-    pattern: ^1\.0\.0-rc\.(?P<major>\d+)\.(?P<minor>\d+)-open_science-amd64
+    pattern: ^1\.0\.0-rc\.(?P<major>\d+)(\.(?P<minor>\d+))?-open_science-amd64
     extract: '$major.$minor.0'
   policy:
     semver:
