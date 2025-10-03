@@ -6,21 +6,21 @@ metadata:
 spec:
   interval: 5m
   image: bonfirenetworks/bonfire
----
-apiVersion: image.toolkit.fluxcd.io/v1
-kind: ImagePolicy
-metadata:
-  name: bonfire-open-science
-spec:
-  imageRepositoryRef:
-    name: bonfire
-  filterTags:
-    pattern: ^(?P<semver>.*?)-open_science-amd64
-    extract: '$semver'
-  policy:
-    semver:
-      range: '*'
-  digestReflectionPolicy: IfNotPresent
+# ---
+# apiVersion: image.toolkit.fluxcd.io/v1
+# kind: ImagePolicy
+# metadata:
+#   name: bonfire-open-science
+# spec:
+#   imageRepositoryRef:
+#     name: bonfire
+#   filterTags:
+#     pattern: ^(?P<semver>.*?)-open_science-amd64
+#     extract: '$semver'
+#   policy:
+#     semver:
+#       range: '*'
+#   digestReflectionPolicy: IfNotPresent
 ---
 apiVersion: image.toolkit.fluxcd.io/v1
 kind: ImagePolicy
