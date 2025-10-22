@@ -94,9 +94,6 @@ spec:
 
   values:
     fullnameOverride: inbox-db--${environment_name}
-    image:
-      repository: percona/percona-server-mongodb
-      tag: 7.0.14-8-multi
     sharding:
       enabled: false
     backup:
