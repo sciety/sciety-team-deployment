@@ -76,7 +76,7 @@ spec:
     hostname: sciety.org
     images:
       frontend:
-        tag: ac89897b88d01cee33c5f5bded188be51db46aac
+        tag: 434e851dfefd454b23aa41f3e0573f190bb97268
     certManagerClusterIssuer: letsencrypt
     allowSiteCrawlers: "true"
     fathomSiteId: DBULFPXG
