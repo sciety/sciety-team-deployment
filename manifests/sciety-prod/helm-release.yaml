@@ -38,6 +38,14 @@ spec:
       targetPath: auth0CallbackUrl
     - kind: Secret
       name: sciety--prod--secret-env-vars
+      valuesKey: BONFIRE_SCIETY_ACCOUNT_EMAIL
+      targetPath: bonfireScietyAccountEmail
+    - kind: Secret
+      name: sciety--prod--secret-env-vars
+      valuesKey: BONFIRE_SCIETY_ACCOUNT_PASSWORD
+      targetPath: bonfireScietyAccountPassword
+    - kind: Secret
+      name: sciety--prod--secret-env-vars
       valuesKey: healthchecksPingKey
       targetPath: healthchecksPingKey
     - kind: Secret
