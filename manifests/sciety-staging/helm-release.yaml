@@ -76,7 +76,7 @@ spec:
     hostname: staging.sciety.org
     images:
       frontend:
-        tag: 720ca32ec457953c510fb373ffd43b443e55356f
+        tag: e11fdbf9deec1f91f88d46ba333035fff61b6153
     certManagerClusterIssuer: letsencrypt
   postRenderers:
     - kustomize:
