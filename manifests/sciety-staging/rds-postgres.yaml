@@ -9,7 +9,7 @@ spec:
   dbName: postgres
   port: 5432
   engine: postgres
-  engineVersion: "13.18"
+  engineVersion: "14.19"
   masterUsername: "postgres"
   masterUserPassword:
     name: sciety--staging--secret-env-vars
