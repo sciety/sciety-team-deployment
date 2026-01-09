@@ -29,6 +29,9 @@ spec:
       enabled: true
       storageClass: sciety-gp3
       size: 10Gi
-
+    resources:
+      requests:
+        memory: 500Mi
+        cpu: 100m
     serviceMonitor:
       enabled: true
