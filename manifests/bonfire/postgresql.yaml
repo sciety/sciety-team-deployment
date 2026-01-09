@@ -22,6 +22,9 @@ spec:
       storage_class: sciety-gp3
       image_suffix: -gis
 
+      instance_cpu: 500m
+      instance_memory: 1Gi
+
       # Backup values
       project: sciety
       aws_backup_service_account_role_arn: ${aws_backup_service_account_role_arn}
