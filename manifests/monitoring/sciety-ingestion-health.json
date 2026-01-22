@@ -18,7 +18,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 41,
+  "id": 44,
   "links": [],
   "panels": [
     {
@@ -259,12 +259,12 @@
     "list": []
   },
   "time": {
-    "from": "now-6h",
+    "from": "now-7d",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "browser",
   "title": "Sciety ingestion health",
   "uid": "das6jr7",
-  "version": 1
+  "version": 2
 }
