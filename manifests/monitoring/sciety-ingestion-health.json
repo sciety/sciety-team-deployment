@@ -28,9 +28,6 @@
       },
       "fieldConfig": {
         "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
           "custom": {
             "align": "auto",
             "cellOptions": {
@@ -56,15 +53,28 @@
             ]
           }
         },
-        "overrides": []
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Time"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 194
+              }
+            ]
+          }
+        ]
       },
       "gridPos": {
-        "h": 8,
-        "w": 12,
+        "h": 14,
+        "w": 24,
         "x": 0,
         "y": 0
       },
-      "id": 1,
+      "id": 2,
       "options": {
         "cellHeight": "sm",
         "showHeader": true
@@ -77,12 +87,34 @@
             "uid": "P022A0A8F82CACB18"
           },
           "editorMode": "code",
-          "expr": "Failed to post evaluation command AND kubernetes.pod_labels.app.kubernetes.io/component:=\"ingestion\" AND kubernetes.pod_labels.app.kubernetes.io/instance:=\"sciety--prod\"| unpack_json | payload.leftsTotal:> 0 | fields payload.groupName, payload.leftsTotal",
+          "expr": "Error while posting evaluation command AND kubernetes.pod_labels.app.kubernetes.io/component:=\"ingestion\" AND kubernetes.pod_labels.app.kubernetes.io/instance:=\"sciety--prod\"| unpack_json | fields payload.evaluationCommand.expressionDoi, payload.evaluationCommand.evaluationLocator, payload.evaluationCommand.groupId",
+          "interval": "",
           "queryType": "instant",
           "refId": "A"
         }
       ],
-      "title": "New panel",
+      "title": "New Panel",
+      "transformations": [
+        {
+          "id": "extractFields",
+          "options": {
+            "source": "labels"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "includeByName": {
+              "Line": true,
+              "Time": true
+            },
+            "indexByName": {
+              "Line": 1,
+              "Time": 0
+            }
+          }
+        }
+      ],
       "type": "table"
     }
   ],
@@ -100,5 +132,5 @@
   "timezone": "browser",
   "title": "Sciety ingestion health",
   "uid": "das6jr7",
-  "version": 1
+  "version": 2
 }
