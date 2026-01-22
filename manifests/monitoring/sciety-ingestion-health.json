@@ -18,9 +18,137 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 38,
+  "id": 41,
   "links": [],
   "panels": [
+    {
+      "datasource": {
+        "type": "victoriametrics-logs-datasource",
+        "uid": "P022A0A8F82CACB18"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "fillOpacity": 80,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Time"
+            },
+            "properties": []
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 14,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 2,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.97,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "orientation": "auto",
+        "showValue": "auto",
+        "stacking": "none",
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        },
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "pluginVersion": "12.3.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "victoriametrics-logs-datasource",
+            "uid": "P022A0A8F82CACB18"
+          },
+          "editorMode": "code",
+          "expr": "Error while posting evaluation command AND kubernetes.pod_labels.app.kubernetes.io/component:=\"ingestion\" AND kubernetes.pod_labels.app.kubernetes.io/instance:=\"sciety--prod\"| unpack_json | fields payload.evaluationCommand.expressionDoi, payload.evaluationCommand.evaluationLocator, payload.evaluationCommand.groupId, _time | stats by (_time:1d) count() as \"errors\"",
+          "interval": "",
+          "queryType": "statsRange",
+          "refId": "A",
+          "step": "1d"
+        }
+      ],
+      "title": "New Panel",
+      "transformations": [
+        {
+          "id": "extractFields",
+          "options": {
+            "delimiter": ",",
+            "source": "errors"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {
+              "Line": true,
+              "Time": true,
+              "errors": true
+            },
+            "indexByName": {
+              "Line": 1,
+              "Time": 0
+            },
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "barchart"
+    },
     {
       "datasource": {
         "type": "victoriametrics-logs-datasource",
@@ -72,12 +200,18 @@
         "h": 14,
         "w": 24,
         "x": 0,
-        "y": 0
+        "y": 14
       },
-      "id": 2,
+      "id": 3,
       "options": {
         "cellHeight": "sm",
-        "showHeader": true
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": true,
+            "displayName": "Time"
+          }
+        ]
       },
       "pluginVersion": "12.3.1",
       "targets": [
@@ -87,7 +221,7 @@
             "uid": "P022A0A8F82CACB18"
           },
           "editorMode": "code",
-          "expr": "Error while posting evaluation command AND kubernetes.pod_labels.app.kubernetes.io/component:=\"ingestion\" AND kubernetes.pod_labels.app.kubernetes.io/instance:=\"sciety--prod\"| unpack_json | fields payload.evaluationCommand.expressionDoi, payload.evaluationCommand.evaluationLocator, payload.evaluationCommand.groupId",
+          "expr": "Error while posting evaluation command AND kubernetes.pod_labels.app.kubernetes.io/component:=\"ingestion\" AND kubernetes.pod_labels.app.kubernetes.io/instance:=\"sciety--prod\"| unpack_json | fields payload.evaluationCommand.expressionDoi, payload.evaluationCommand.evaluationLocator, payload.evaluationCommand.groupId, _time",
           "interval": "",
           "queryType": "instant",
           "refId": "A"
@@ -132,5 +266,5 @@
   "timezone": "browser",
   "title": "Sciety ingestion health",
   "uid": "das6jr7",
-  "version": 2
+  "version": 1
 }
