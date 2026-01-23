@@ -101,21 +101,3 @@ spec:
                         requests:
                           cpu: 1.5
                           memory: 2.3Gi
-          - target:
-              version: v1
-              kind: Deployment
-              name: sciety--prod--cache
-            patch: |
-              apiVersion: apps/v1
-              kind: Deployment
-              metadata:
-                name: not-used
-              spec:
-                template:
-                  spec:
-                    containers:
-                    - name: redis
-                      resources:
-                        requests:
-                          cpu: 455m
-                          memory: 9886Mi
