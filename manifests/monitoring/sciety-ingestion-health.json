@@ -18,7 +18,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 44,
+  "id": 10,
   "links": [],
   "panels": [
     {
@@ -238,14 +238,19 @@
         {
           "id": "organize",
           "options": {
+            "excludeByName": {},
             "includeByName": {
-              "Line": true,
-              "Time": true
+              "Line": false,
+              "Time": true,
+              "payload.evaluationCommand.evaluationLocator": true,
+              "payload.evaluationCommand.expressionDoi": true,
+              "payload.evaluationCommand.groupId": true
             },
             "indexByName": {
               "Line": 1,
               "Time": 0
-            }
+            },
+            "renameByName": {}
           }
         }
       ],
@@ -266,5 +271,5 @@
   "timezone": "browser",
   "title": "Sciety ingestion health",
   "uid": "das6jr7",
-  "version": 2
+  "version": 1
 }
