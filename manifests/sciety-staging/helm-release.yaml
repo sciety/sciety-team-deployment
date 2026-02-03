@@ -99,3 +99,14 @@ spec:
                         requests:
                           cpu: 1.5
                           memory: 900Mi
+          - target:
+              version: v1
+              kind: Ingress
+              name: sciety--staging--frontend
+            patch: |
+              apiVersion: networking.k8s.io/v1
+              kind: Ingress
+              metadata:
+                name: not-used
+                annotations:
+                  external-dns.alpha.kubernetes.io/controller: "disabled"
