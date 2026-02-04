@@ -7,5 +7,6 @@ resources:
   - "./secret-env-vars.yaml"
   - "./rds-postgres.yaml"
   - "./helm-release.yaml"
+  - "./ingress.yaml"
 
 namespace: sciety
