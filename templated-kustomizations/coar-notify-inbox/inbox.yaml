@@ -76,30 +76,6 @@ spec:
         - inbox-sciety-${environment_name}.elifesciences.org
       secretName: sciety--${environment_name}--inbox--letsencrypt-cert
 ---
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: inbox--${environment_name}-traefik
-  annotations:
-    cert-manager.io/cluster-issuer: letsencrypt
-spec:
-  ingressClassName: traefik
-  rules:
-    - host: inbox-sciety-${environment_name}.elifesciences.org
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: inbox--${environment_name}
-                port:
-                  number: 80
-  tls:
-    - hosts:
-        - inbox-sciety-${environment_name}.elifesciences.org
-      secretName: sciety--${environment_name}--inbox--letsencrypt-cert
----
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
