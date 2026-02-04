@@ -1,0 +1,32 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: sciety--prod
+  namespace: sciety
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    traefik.ingress.kubernetes.io/router.middlewares: traefik-redirect-www-to-non-www@kubernetescrd
+  labels:
+    app.kubernetes.io/component: frontend
+    app.kubernetes.io/instance: sciety--prod
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: sciety
+spec:
+  ingressClassName: traefik
+  rules:
+  - host: sciety.org
+    http:
+      paths:
+      - backend:
+          service:
+            name: sciety--prod--frontend
+            port:
+              name: http
+        path: /
+        pathType: Prefix
+  tls:
+  - hosts:
+    - sciety.org
+    - www.sciety.org
+    secretName: sciety--prod--frontend--letsencrypt-cert
