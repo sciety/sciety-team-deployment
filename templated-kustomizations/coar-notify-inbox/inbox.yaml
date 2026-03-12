@@ -113,4 +113,4 @@ spec:
             memory: "300Mi"
           requests:
             cpu: "50m"
-            memory: "270Mi"
+            memory: "350Mi"
