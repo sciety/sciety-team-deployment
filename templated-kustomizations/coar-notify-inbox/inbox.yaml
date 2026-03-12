@@ -110,7 +110,7 @@ spec:
                 storage: 20Gi
         resources:
           limits:
-            memory: "300Mi"
+            memory: "400Mi"
           requests:
             cpu: "50m"
             memory: "350Mi"
