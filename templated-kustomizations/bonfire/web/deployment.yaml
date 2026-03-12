@@ -49,7 +49,7 @@ spec:
         resources:
           requests:
             cpu: 400m
-            memory: 550Mi
+            memory: 650Mi
         livenessProbe:
           httpGet:
             path: /dashboard
