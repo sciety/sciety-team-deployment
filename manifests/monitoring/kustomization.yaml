@@ -3,6 +3,7 @@ kind: Kustomization
 configMapGenerator:
 - files:
   - application-health-dashboard.json
+  - sciety-coar-based-ingestion-health.json
   - sciety-ingestion-health.json
   name: sciety-dashboards
 patches:
