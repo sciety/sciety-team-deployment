@@ -11,7 +11,7 @@ spec:
       rules:
         - alert: PersistentCoarIngestionError
           expr: |
-            Error AND kubernetes.pod_labels.app.kubernetes.io/component:="coar-based-ingestion" AND kubernetes.pod_labels.app.kubernetes.io/instance:="sciety--prod" AND _time:1h | unpack_json | stats by (payload.evaluationCommand.groupId, payload.evaluationCommand.expressionDoi, payload.evaluationCommand.evaluationLocator) count() as errors
+            Error AND kubernetes.pod_labels.app.kubernetes.io/component:="coar-based-ingestion" AND kubernetes.pod_labels.app.kubernetes.io/instance:="sciety--prod" AND _time:1h | unpack_json | filter payload.evaluationCommand.expressionDoi:* | stats by (payload.evaluationCommand.groupId, payload.evaluationCommand.expressionDoi, payload.evaluationCommand.evaluationLocator) count() as errors
           condition: "errors > 1"
           annotations:
             summary: "COAR ingestion error repeated for the same evaluation command in the past hour"
