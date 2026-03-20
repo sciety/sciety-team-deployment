@@ -1,0 +1,19 @@
+apiVersion: operator.victoriametrics.com/v1beta1
+kind: VMRule
+metadata:
+  name: sciety-coar-ingestion-errors
+  labels:
+    alert-type: victorialogs
+spec:
+  groups:
+    - name: coar-based-ingestion
+      rules:
+        - alert: CoarIngestionErrorRepeated
+          expr: |
+            Error AND kubernetes.pod_labels.app.kubernetes.io/component:="coar-based-ingestion" AND kubernetes.pod_labels.app.kubernetes.io/instance:="sciety--prod" AND _time:1h | unpack_json | stats by (payload.evaluationCommand.groupId, payload.evaluationCommand.expressionDoi, payload.evaluationCommand.evaluationLocator) count() as errors
+          condition: "errors > 1"
+          annotations:
+            summary: "COAR ingestion error repeated for the same evaluation command in the past hour"
+            description: "groupId={{ $labels.payload.evaluationCommand.groupId }} expressionDoi={{ $labels.payload.evaluationCommand.expressionDoi }} evaluationLocator={{ $labels.payload.evaluationCommand.evaluationLocator }} has failed {{ $value }} times in the past hour."
+          labels:
+            severity: error
