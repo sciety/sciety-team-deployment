@@ -18,4 +18,4 @@ spec:
             description: "groupId={{ index $labels \"payload.evaluationCommand.groupId\" }} expressionDoi={{ index $labels \"payload.evaluationCommand.expressionDoi\" }} evaluationLocator={{ index $labels \"payload.evaluationCommand.evaluationLocator\" }} has failed {{ $value }} times in the past hour."
           labels:
             severity: error
-            test: true
+            test: "true"
