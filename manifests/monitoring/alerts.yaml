@@ -15,6 +15,6 @@ spec:
           condition: "errors > 1"
           annotations:
             summary: "COAR ingestion error repeated for the same evaluation command in the past hour"
-            description: "EvaluationCommand pushed from {{ index $labels \"kubernetes.pod_labels.app.kubernetes.io/instance\" }} in {{ index $labels \"kubernetes.pod_namespace\" }} namespace with groupId={{ index $labels \"payload.evaluationCommand.groupId\" }} expressionDoi={{ index $labels \"payload.evaluationCommand.expressionDoi\" }} evaluationLocator={{ index $labels \"payload.evaluationCommand.evaluationLocator\" }} has failed {{ $value }} times in the past hour."
+            description: "EvaluationCommand sent from {{ index $labels \"kubernetes.pod_labels.app.kubernetes.io/instance\" }} in {{ index $labels \"kubernetes.pod_namespace\" }} namespace with groupId={{ index $labels \"payload.evaluationCommand.groupId\" }} expressionDoi={{ index $labels \"payload.evaluationCommand.expressionDoi\" }} evaluationLocator={{ index $labels \"payload.evaluationCommand.evaluationLocator\" }} has failed {{ $value }} times in the past hour."
           labels:
             severity: error
