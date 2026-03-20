@@ -9,7 +9,7 @@ spec:
     - name: coar-based-ingestion
       type: vlogs
       rules:
-        - alert: CoarIngestionErrorRepeated
+        - alert: PersistentCoarIngestionError
           expr: |
             Error AND kubernetes.pod_labels.app.kubernetes.io/component:="coar-based-ingestion" AND kubernetes.pod_labels.app.kubernetes.io/instance:="sciety--prod" AND _time:1h | unpack_json | stats by (payload.evaluationCommand.groupId, payload.evaluationCommand.expressionDoi, payload.evaluationCommand.evaluationLocator) count() as errors
           condition: "errors > 1"
