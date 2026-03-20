@@ -11,10 +11,10 @@ spec:
       rules:
         - alert: PersistentCoarIngestionError
           expr: |
-            Error AND kubernetes.pod_labels.app.kubernetes.io/component:="coar-based-ingestion" AND kubernetes.pod_labels.app.kubernetes.io/instance:="sciety--prod" AND _time:1h | unpack_json | filter payload.evaluationCommand.expressionDoi:* | stats by (payload.evaluationCommand.groupId, payload.evaluationCommand.expressionDoi, payload.evaluationCommand.evaluationLocator) count() as errors
+            Error AND kubernetes.pod_labels.app.kubernetes.io/component:="coar-based-ingestion" AND kubernetes.pod_labels.app.kubernetes.io/instance:="sciety--prod" AND _time:1h | unpack_json | filter payload.evaluationCommand.expressionDoi:* | stats by (kubernetes.pod_namespace, kubernetes.pod_labels.app.kubernetes.io/instance, payload.evaluationCommand.groupId, payload.evaluationCommand.expressionDoi, payload.evaluationCommand.evaluationLocator) count() as errors
           condition: "errors > 1"
           annotations:
             summary: "COAR ingestion error repeated for the same evaluation command in the past hour"
-            description: "EvaluationCommand with groupId={{ index $labels \"payload.evaluationCommand.groupId\" }} expressionDoi={{ index $labels \"payload.evaluationCommand.expressionDoi\" }} evaluationLocator={{ index $labels \"payload.evaluationCommand.evaluationLocator\" }} has failed {{ $value }} times in the past hour."
+            description: "EvaluationCommand pushed from {{ index $labels \"kubernetes.kubernetes.pod_labels.app.kubernetes.io/instance\" }} in {{ index $labels \"kubernetes.pod_namespace\" }} namespace with groupId={{ index $labels \"payload.evaluationCommand.groupId\" }} expressionDoi={{ index $labels \"payload.evaluationCommand.expressionDoi\" }} evaluationLocator={{ index $labels \"payload.evaluationCommand.evaluationLocator\" }} has failed {{ $value }} times in the past hour."
           labels:
             severity: error
