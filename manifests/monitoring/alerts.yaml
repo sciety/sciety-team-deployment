@@ -15,6 +15,6 @@ spec:
           condition: "errors > 1"
           annotations:
             summary: "COAR ingestion error repeated for the same evaluation command in the past hour"
-            description: "groupId={{ index $labels \"payload.evaluationCommand.groupId\" }} expressionDoi={{ index $labels \"payload.evaluationCommand.expressionDoi\" }} evaluationLocator={{ index $labels \"payload.evaluationCommand.evaluationLocator\" }} has failed {{ $value }} times in the past hour."
+            description: "groupId={{ $labels.payload_evaluationCommand_groupId }} expressionDoi={{ $labels.payload_evaluationCommand_expressionDoi }} evaluationLocator={{ $labels.payload_evaluationCommand_evaluationLocator }} has failed {{ $value }} times in the past hour."
           labels:
             severity: error
