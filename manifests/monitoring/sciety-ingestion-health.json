@@ -18,7 +18,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 10,
+  "id": 9,
   "links": [],
   "panels": [
     {
@@ -259,7 +259,9 @@
   ],
   "preload": false,
   "schemaVersion": 42,
-  "tags": [],
+  "tags": [
+    "sciety"
+  ],
   "templating": {
     "list": []
   },
