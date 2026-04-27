@@ -76,7 +76,7 @@ spec:
     hostname: sciety.org
     images:
       frontend:
-        tag: 0e9f6c5a3a6a433815d941839d57a3b0b9705a5e
+        tag: d42f029c3bcdb0be3b4a51905920908f8506926b
     allowSiteCrawlers: "true"
     fathomSiteId: DBULFPXG
   postRenderers:
