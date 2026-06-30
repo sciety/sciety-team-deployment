@@ -76,7 +76,7 @@ spec:
     hostname: staging.sciety.org
     images:
       frontend:
-        tag: 6efdd9aedf4abf2f6a760cf7f60395c10c79857e
+        tag: 4c86f45c2b515bdda7b3021300be7f262fd9f7ba
   postRenderers:
     - kustomize:
         patches:
