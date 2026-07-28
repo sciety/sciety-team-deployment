@@ -1,0 +1,15 @@
+apiVersion: operator.dash0.com/v1beta1
+kind: Dash0Monitoring
+metadata:
+  name: dash0-sciety-frontend-staging
+  namespace: sciety
+spec:
+  instrumentWorkloads:
+    mode: all
+    labelSelector: "app.kubernetes.io/instance=sciety--staging,app.kubernetes.io/component=frontend"
+  logCollection:
+    enabled: false
+  eventCollection:
+    enabled: true
+  prometheusScraping:
+    enabled: false
