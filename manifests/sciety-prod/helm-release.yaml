@@ -111,3 +111,20 @@ spec:
                 name: not-used
                 annotations:
                   external-dns.alpha.kubernetes.io/controller: "disabled"
+          - target:
+              version: v1
+              kind: Deployment
+              name: sciety--prod--frontend
+            patch: |
+              apiVersion: apps/v1
+              kind: Deployment
+              metadata:
+                name: not-used
+              spec:
+                template:
+                  metadata:
+                    annotations:
+                      resource.opentelemetry.io/service.name: sciety-frontend
+                      resource.opentelemetry.io/service.namespace: sciety
+                      resource.opentelemetry.io/deployment.environment.name: production
+                      resource.opentelemetry.io/service.criticality: high

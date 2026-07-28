@@ -6,7 +6,7 @@ metadata:
 spec:
   instrumentWorkloads:
     mode: all
-    labelSelector: "app.kubernetes.io/instance=sciety--staging,app.kubernetes.io/component=frontend"
+    labelSelector: "app.kubernetes.io/component=frontend"
   logCollection:
     enabled: false
   eventCollection:
