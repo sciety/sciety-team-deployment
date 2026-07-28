@@ -8,7 +8,11 @@ spec:
     mode: all
     labelSelector: "app.kubernetes.io/component=frontend"
   logCollection:
-    enabled: false
+    enabled: true
+  filter:
+    logs:
+      log_records:
+        - 'not (resource.attributes["k8s.deployment.name"] == "sciety--prod--frontend" or resource.attributes["k8s.deployment.name"] == "sciety--prod--ingestion")'
   eventCollection:
     enabled: true
   prometheusScraping:
