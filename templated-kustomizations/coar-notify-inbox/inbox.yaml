@@ -101,6 +101,8 @@ spec:
       enabled: false
     replsets:
       rs0:
+        nodeSelector:
+          topology.kubernetes.io/zone: us-east-1c
         volumeSpec:
           pvc:
             accessModes: [ "ReadWriteOnce" ]
