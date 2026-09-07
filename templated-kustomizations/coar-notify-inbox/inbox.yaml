@@ -97,6 +97,8 @@ spec:
     fullnameOverride: inbox-db--${environment_name}
     sharding:
       enabled: false
+    logcollector:
+      enabled: false
     backup:
       enabled: false
     replsets:
