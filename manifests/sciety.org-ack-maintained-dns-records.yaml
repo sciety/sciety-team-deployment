@@ -11,6 +11,7 @@ spec:
     - value: '"google-site-verification=CkWhogOskZm7nRTmjdHiD8q2NbfXOns-vp5qeHEK_5w"'
     - value: '"facebook-domain-verification=hr2usdynx8j2iv4mpn7i7ka0nkwaa1"'
     - value: '"heritage=external-dns,external-dns/owner=flux-cluster,external-dns/resource=ingress/sciety/sciety--prod--frontend"'
+    - value: '"hibp-verify=dweb_bop38pu0hu3ujdwzxs35tr22"'
 ---
 apiVersion: route53.services.k8s.aws/v1alpha1
 kind: RecordSet
