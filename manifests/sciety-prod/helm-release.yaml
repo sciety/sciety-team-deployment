@@ -44,6 +44,10 @@ spec:
       name: sciety--prod--secret-env-vars
       valuesKey: PREREVIEW_BEARER_TOKEN
       targetPath: prereviewBearerToken
+    - kind: Secret
+      name: sciety--prod--secret-env-vars
+      valuesKey: ACTIVITYPUB_PRIVATE_KEY
+      targetPath: activitypubPrivateKey
     - kind: ConfigMap
       name: sciety--prod--public-env-vars
       valuesKey: EXPERIMENT_ENABLED
